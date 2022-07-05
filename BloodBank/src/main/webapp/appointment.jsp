@@ -3,47 +3,37 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Registered Donors</title>
+    <title>Appointment</title>
     </head>
   <body>
   <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Registered Donors</h1>
+    <center><h1>Appointment</h1>
     <center>
     <% 
     String db = "BloodBank";
     String user = "root";
-    String pw = "password";
+    String password = "password";
         try {
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BloodBank?autoReconnect=true&useSSL=false", user, password);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM person NATURAL JOIN donor");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM appointment");
             %>
             <table border="2">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Gender</th>
-                <th>Age</th>
-                <th>Blood Type</th>
-                <th>Height (in)</th>
-                <th>Weight (lbs)</th>
-                <th>Donor Eligibility</th>
+                <th>Birthday</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
                     <td><%=rs.getString(2)%></td>
                     <td><%=rs.getString(3)%></td>
-                    <td><%=rs.getString(4)%></td>
-                    <td><%=rs.getInt(5)%></td>
-                    <td><%=rs.getString(6)%></td>
-                    <td><%=rs.getInt(7)%></td>
-                    <td><%=rs.getInt(8)%></td>
-                    <td><%=rs.getDate(9)%></td>
+                    <td><%=rs.getDate(4)%></td>
                 </tr>
             <% }
             rs.close();

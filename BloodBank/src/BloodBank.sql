@@ -17,7 +17,7 @@ CREATE TABLE donor (
     blood_type CHAR(3) NOT NULL,
     heightIN INT NOT NULL,
     weightLB INT NOT NULL,
-    donationEligibility DATETIME
+    donationEligibility DATE
 );
 
 DROP TABLE IF EXISTS patient;
@@ -59,6 +59,14 @@ CREATE TABLE location (
 	location_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
     location_name CHAR(36) NOT NULL,
     city CHAR(36) NOT NULL
+);
+
+DROP TABLE IF EXISTS appointment;
+CREATE TABLE appointment (
+	appointment_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    first_name CHAR(36) NOT NULL,
+    last_name CHAR(36) NOT NULL,
+    birthday DATE NOT NULL
 );
 
 INSERT INTO person(first_name, last_name, gender, age) VALUES
@@ -129,7 +137,7 @@ INSERT INTO donation(donor_id, employee_id, amount_donated, donation_type) VALUE
 SELECT donation_id, donor_id, employee_id, amount_donated AS "amount_donated(cc)", donation_type FROM donation;
 
 -- This query selects the donor who was helped by the employee
-SELECT d.donation_id, d.donor_id, p.first_name, p.last_name, d.employee_id, e.first_name, e.last_name, d.amount_donated, d.donation_type
+SELECT d.donation_id, d.donor_id, p.first_name, p.last_name, d.employee_id, e.first_name, e.last_name, d.amount_donated AS "amount_donated(cc)", d.donation_type
 FROM donation d, person p, employee e WHERE d.donor_id = p.id AND d.employee_id = e.id;
 
 INSERT INTO transfusion(patient_id, employee_id, amount_received) VALUES
@@ -140,8 +148,8 @@ INSERT INTO transfusion(patient_id, employee_id, amount_received) VALUES
     (10, 14, 732.18);
 SELECT transfusion_id, patient_id, employee_id, amount_received AS "amount_received(cc)" FROM transfusion;
 
--- This query selects the patient who was helped by the employee
-SELECT t.transfusion_id, t.patient_id, p.first_name, p.last_name, t.employee_id, e.first_name, e.last_name, t.amount_received
+-- This query selects the donor who was helped by the employee
+SELECT t.transfusion_id, t.patient_id, p.first_name, p.last_name, t.employee_id, e.first_name, e.last_name, t.amount_received AS "amount_received(cc)"
 FROM transfusion t, person p, employee e WHERE t.patient_id = p.id AND t.employee_id = e.id;
 
 INSERT INTO location(location_name, city) VALUES
@@ -152,4 +160,14 @@ INSERT INTO location(location_name, city) VALUES
     ('Stanford Blood Center', 'Menlo Park'),
     ('San Francisco Downtown Center', 'San Francisco');
 SELECT * FROM location;
+
+
+INSERT INTO appointment(first_name, last_name, birthday) VALUES
+	('Anderson', 'Pamela', '2000-10-21'),
+    ('Arcand', 'Denys', '1995-06-04'),
+    ('Carey', 'Jim', '1997-07-15'),
+    ('Pearson', 'Lester', '1999-09-30'),
+    ('Orr', 'Robert', '1990-10-12'),
+    ('Ronaldo', 'Cristiano', '1990-10-12');
+SELECT * FROM appointment;
     
