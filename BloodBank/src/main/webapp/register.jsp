@@ -43,18 +43,47 @@
                          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);
                          Statement stmt = con.createStatement();
                          
-                         String first = request.getParameter("first_name");
-                         String last = request.getParameter("last_name");
-                         int age = Integer.parseInt(request.getParameter("age"));
-                         String gender = request.getParameter("gender");
-                         String blood = request.getParameter("bloodType");
-                         int heightInt = Integer.parseInt(request.getParameter("height"));
-                         int weightInt = Integer.parseInt(request.getParameter("weight"));
 
-                         int result = stmt.executeUpdate("INSERT INTO bloodbank.person(first_name,last_name,gender,age) VALUES('"+first+"','"+last+"','"+gender+"','"+age+"')");
-                         out.print("Data Inserted!");
+                         String first =  new String();
+                         String last = new String();
+                         int age = 0;
+                         String gender = new String();
+                         String blood = new String();
+                         int heightInt = 0;
+                         int weightInt = 0;
 
+                         if(request.getParameter("first_name") != null){
+                        	 first = request.getParameter("first_name");
+                         }
+                         
+                         if(request.getParameter("last_name") != null){
+                        	 last = request.getParameter("last_name");
+                         }
+                         
+                         if(request.getParameter("age") != null){
+                        	 age =  Integer.parseInt(request.getParameter("age"));
+                         }
+                         
+                         if(request.getParameter("gender") != null){
+                        	 gender = request.getParameter("gender");
+                         }
+                         
+                         if(request.getParameter("bloodType") != null){
+                        	 blood = request.getParameter("bloodType");
+                         }
+                         
+                         if(request.getParameter("height") != null){
+                        	 heightInt = Integer.parseInt(request.getParameter("height"));
+                         }
 
+                         if(request.getParameter("weight") != null){
+                        	 weightInt = Integer.parseInt(request.getParameter("weight"));
+                         }
+
+                         if(!first.isEmpty() && !last.isEmpty() && age != 0 && !gender.isEmpty()){
+                             int result = stmt.executeUpdate("INSERT INTO bloodbank.person(first_name,last_name,gender,age) VALUES('"+first+"','"+last+"','"+gender+"','"+age+"')");
+                              out.print("Data Inserted!");    
+                          } 
 
                       }catch(SQLException e) {
                          e.printStackTrace();
