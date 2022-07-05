@@ -51,8 +51,11 @@
                          int heightInt = Integer.parseInt(request.getParameter("height"));
                          int weightInt = Integer.parseInt(request.getParameter("weight"));
 
-                         int result = stmt.executeUpdate("INSERT INTO bloodbank.person(first_name,last_name,gender,age) VALUES('"+first+"','"+last+"','"+gender+"','"+age+"')");
-                         out.print("Data Inserted!");
+                         if(!first.isEmpty() && !last.isEmpty() && age !=0 && !gender.isEmpty()) {
+                        	 int result = stmt.executeUpdate("INSERT INTO bloodbank.person(first_name,last_name,gender,age) VALUES('"+first+"','"+last+"','"+gender+"','"+age+"')");
+                        	 out.print("Data Inserted!");
+                         }
+                         
 
 
 
