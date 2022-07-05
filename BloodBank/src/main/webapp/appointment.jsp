@@ -12,7 +12,7 @@
     <% 
     String db = "BloodBank";
     String user = "root";
-    String password = "pw";
+    String password = "password";
         try {
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");

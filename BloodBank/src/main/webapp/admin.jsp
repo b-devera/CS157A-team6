@@ -16,6 +16,7 @@
     <input type="button" value="Donation Log" onclick="window.location='donations.jsp'" ><br/><br/>
     <input type="button" value="Transfusion Log" onclick="window.location='transfusions.jsp'" ><br/><br/>
     <input type="button" value="Locations" onclick="window.location='locations.jsp'" ><br/><br/>
+    <input type="button" value="Appointments" onclick="window.location='appointment.jsp'" ><br/><br/>
     </center>
    </table>
   </body>

@@ -31,6 +31,7 @@
                 <th>Blood Type</th>
                 <th>Height (in)</th>
                 <th>Weight (lbs)</th>
+                <th>Donor Eligibility</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -42,6 +43,7 @@
                     <td><%=rs.getString(6)%></td>
                     <td><%=rs.getInt(7)%></td>
                     <td><%=rs.getInt(8)%></td>
+                    <td><%=rs.getDate(9)%></td>
                 </tr>
             <% }
             rs.close();
