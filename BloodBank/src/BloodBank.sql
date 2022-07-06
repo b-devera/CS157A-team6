@@ -66,7 +66,8 @@ CREATE TABLE appointment (
 	appointment_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
     first_name CHAR(36) NOT NULL,
     last_name CHAR(36) NOT NULL,
-    birthday DATE NOT NULL
+    birthday DATE NOT NULL,
+    time TIME NOT NULL
 );
 
 INSERT INTO person(first_name, last_name, gender, age) VALUES
@@ -161,13 +162,13 @@ INSERT INTO location(location_name, city) VALUES
     ('San Francisco Downtown Center', 'San Francisco');
 SELECT * FROM location;
 
-
-INSERT INTO appointment(first_name, last_name, birthday) VALUES
-	('Anderson', 'Pamela', '2000-10-21'),
-    ('Arcand', 'Denys', '1995-06-04'),
-    ('Carey', 'Jim', '1997-07-15'),
-    ('Pearson', 'Lester', '1999-09-30'),
-    ('Orr', 'Robert', '1990-10-12'),
-    ('Ronaldo', 'Cristiano', '1990-10-12');
+INSERT INTO appointment(first_name, last_name, birthday, time) VALUES
+	('Anderson', 'Pamela', '2000-10-21', '9:00'),
+    ('Arcand', 'Denys', '1995-06-04', '10:30'),
+    ('Carey', 'Jim', '1997-07-15', '11:00'),
+    ('Pearson', 'Lester', '1999-09-30', '3:00'),
+    ('Orr', 'Robert', '1990-10-12', '2:00'),
+    ('Ronaldo', 'Cristiano', '1990-10-12', '4:30'),
+    ('Neymar', 'Jr', '1992-02-05', '5:00');
 SELECT * FROM appointment;
     
