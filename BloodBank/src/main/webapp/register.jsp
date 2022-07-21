@@ -30,61 +30,30 @@
     <title>Register</title>
     </head>
   <body>
-    <button type="button" name="back" onclick="history.back()">Back</button>
+    <button type="button" name="back" onclick="window.location='home.jsp'">Back</button>
     <center><h1>Donor Registration</h1>
-      <%
+	<%
                      String db= "bloodbank";
                      String user = "root";
                      String pw = "password";
-
                      try{
                          java.sql.Connection con;
                          Class.forName("com.mysql.cj.jdbc.Driver");
                          con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);
                          Statement stmt = con.createStatement();
                          
-
-                         String first =  new String();
-                         String last = new String();
-                         int age = 0;
-                         String gender = new String();
-                         String blood = new String();
-                         int heightInt = 0;
-                         int weightInt = 0;
-
-                         if(request.getParameter("first_name") != null){
-                        	 first = request.getParameter("first_name");
+                         String first = request.getParameter("first_name");
+                         String last = request.getParameter("last_name");
+                         int age = Integer.parseInt(request.getParameter("age"));
+                         String gender = request.getParameter("gender");
+                         String blood = request.getParameter("bloodType");
+                         int heightInt = Integer.parseInt(request.getParameter("height"));
+                         int weightInt = Integer.parseInt(request.getParameter("weight"));
+                         if(!first.isEmpty() && !last.isEmpty() && age !=0 && !gender.isEmpty()) {
+                        	 int result = stmt.executeUpdate("INSERT INTO bloodbank.person(first_name,last_name,gender,age) VALUES('"+first+"','"+last+"','"+gender+"','"+age+"')");
+                        	 out.print("Data Inserted!");
                          }
                          
-                         if(request.getParameter("last_name") != null){
-                        	 last = request.getParameter("last_name");
-                         }
-                         
-                         if(request.getParameter("age") != null){
-                        	 age =  Integer.parseInt(request.getParameter("age"));
-                         }
-                         
-                         if(request.getParameter("gender") != null){
-                        	 gender = request.getParameter("gender");
-                         }
-                         
-                         if(request.getParameter("bloodType") != null){
-                        	 blood = request.getParameter("bloodType");
-                         }
-                         
-                         if(request.getParameter("height") != null){
-                        	 heightInt = Integer.parseInt(request.getParameter("height"));
-                         }
-
-                         if(request.getParameter("weight") != null){
-                        	 weightInt = Integer.parseInt(request.getParameter("weight"));
-                         }
-
-                         if(!first.isEmpty() && !last.isEmpty() && age != 0 && !gender.isEmpty()){
-                             int result = stmt.executeUpdate("INSERT INTO bloodbank.person(first_name,last_name,gender,age) VALUES('"+first+"','"+last+"','"+gender+"','"+age+"')");
-                              out.print("Data Inserted!");    
-                          } 
-
                       }catch(SQLException e) {
                          e.printStackTrace();
                       } catch (Exception exc){
@@ -137,7 +106,18 @@
             <input type="text" name="weight" id="weightBox"/>
         </label>
     </p>
-
+    <p>
+    	<label>
+    		Username
+    		<input type="text" name = "username" id="userBox"/>
+    	</label>
+    </p>
+    <p>
+    	<label>
+    		Password
+    		<input type="password" name="password" id="passBox"/>
+    	</label>
+	</p>
             <input type="reset" value="Clear" />
             <input type="submit" value="Submit"/>
   </form>

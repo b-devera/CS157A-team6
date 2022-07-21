@@ -5,8 +5,8 @@ USE BloodBank;
 DROP TABLE IF EXISTS person;
 CREATE TABLE person (
 	id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-    first_name CHAR(36) NOT NULL,
-    last_name CHAR(36) NOT NULL,
+    first_name VARCHAR(36) NOT NULL,
+    last_name VARCHAR(36) NOT NULL,
     gender CHAR(1) NOT NULL,
     age INT NOT NULL
 );
@@ -14,16 +14,18 @@ CREATE TABLE person (
 DROP TABLE IF EXISTS donor;
 CREATE TABLE donor (
 	id INT(8) NOT NULL PRIMARY KEY REFERENCES person(id),
-    blood_type CHAR(3) NOT NULL,
+    blood_type VARCHAR(3) NOT NULL,
     heightIN INT NOT NULL,
     weightLB INT NOT NULL,
-    donationEligibility DATE
+    donationEligibility DATE,
+    username VARCHAR(36) NOT NULL UNIQUE,
+    password VARCHAR(36) NOT NULL
 );
 
 DROP TABLE IF EXISTS patient;
 CREATE TABLE patient (
 	id INT(8) NOT NULL PRIMARY KEY REFERENCES person(id),
-    blood_type CHAR(3) NOT NULL,
+    blood_type VARCHAR(3) NOT NULL,
     heightIN INT NOT NULL,
     weightLB INT NOT NULL
 );
@@ -31,9 +33,11 @@ CREATE TABLE patient (
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
 	id INT(8) NOT NULL PRIMARY KEY REFERENCES person(id),
-    first_name CHAR(36) NOT NULL REFERENCES person(first_name),
-    last_name CHAR(36) NOT NULL REFERENCES person(last_name),
-    age INT NOT NULL REFERENCES person(age)
+    first_name VARCHAR(36) NOT NULL REFERENCES person(first_name),
+    last_name VARCHAR(36) NOT NULL REFERENCES person(last_name),
+    age INT NOT NULL REFERENCES person(age),
+    admin_status VARCHAR(3) NOT NULL,
+    password VARCHAR(45) NOT NULL
 );
 
 DROP TABLE IF EXISTS donation;
@@ -42,7 +46,7 @@ CREATE TABLE donation (
     donor_id INT(8) NOT NULL REFERENCES donor(id),
     employee_id INT(8) NOT NULL REFERENCES employee(id),
     amount_donated DECIMAL(5, 2) NOT NULL,
-    donation_type CHAR(36) NOT NULL
+    donation_type VARCHAR(36) NOT NULL
 );
 
 
@@ -57,17 +61,19 @@ CREATE TABLE transfusion (
 DROP TABLE IF EXISTS location;
 CREATE TABLE location (
 	location_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-    location_name CHAR(36) NOT NULL,
-    city CHAR(36) NOT NULL
+    location_name VARCHAR(36) NOT NULL,
+    city VARCHAR(36) NOT NULL
 );
 
 DROP TABLE IF EXISTS appointment;
 CREATE TABLE appointment (
 	appointment_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
-    first_name CHAR(36) NOT NULL,
-    last_name CHAR(36) NOT NULL,
-    birthday DATE NOT NULL
+    first_name VARCHAR(36) NOT NULL,
+    last_name VARCHAR(36) NOT NULL,
+    appointment DATE NOT NULL,
+    time TIME NOT NULL
 );
+
 
 INSERT INTO person(first_name, last_name, gender, age) VALUES
 	('JOHN', 'DOE', 'M', 22),
@@ -95,11 +101,11 @@ INSERT INTO person(first_name, last_name, gender, age) VALUES
 SELECT * FROM person;
 
 INSERT INTO donor VALUES
-	(1, 'O+', 70, 175, NOW()),
-    (2, 'AB-', 62, 125, NOW()),
-    (3, 'A+', 72, 175, NOW()),
-    (5, 'B+', 69, 170, NOW()),
-    (8, 'A-', 61, 135, NOW());
+	(1, 'O+', 70, 175, NOW(),'deerjohn','test'),
+    (2, 'AB-', 62, 125, NOW(),'jduncan','password'),
+    (3, 'A+', 72, 175, NOW(),'test','pie'),
+    (5, 'B+', 69, 170, NOW(),'steele','superman'),
+    (8, 'A-', 61, 135, NOW(),'conste','root');
 SELECT * FROM donor;
 SELECT * FROM person NATURAL JOIN donor;
 
@@ -113,18 +119,18 @@ SELECT * FROM patient;
 SELECT * FROM person NATURAL JOIN patient;
 
 INSERT INTO employee VALUES
-	(11, 'MADELINE', 'STEWART', 24),
-    (12, 'HANA', 'WHEELER', 26),
-    (13, 'FRANKLIN', 'FORSTER', 29),
-    (14, 'AZRA', 'PEARSON', 31),
-    (15, 'LESLEY', 'WARNER', 32),
-    (16, 'ABIGAIL', 'HAYES', 27),
-    (17, 'CLAIRE', 'MORIN', 36),
-    (18, 'KEVIN', 'GARLAND', 37),
-    (19, 'JOHN', 'CENA', 25),
-    (20, 'ARTHUR', 'ARCHER', 24),
-    (21, 'BERNICE', 'NASH', 28),
-    (22, 'DANIELLA', 'VASZUEZ', 34);
+	(11, 'MADELINE', 'STEWART', 24, 'No','Stew'),
+    (12, 'HANA', 'WHEELER', 26,'Yes','password'),
+    (13, 'FRANKLIN', 'FORSTER', 29,'No','tree'),
+    (14, 'AZRA', 'PEARSON', 31,'Yes','book'),
+    (15, 'LESLEY', 'WARNER', 32,'No','les'),
+    (16, 'ABIGAIL', 'HAYES', 27,'No','pie314'),
+    (17, 'CLAIRE', 'MORIN', 36,'No','password1234'),
+    (18, 'KEVIN', 'GARLAND', 37,'No','kgar'),
+    (19, 'JOHN', 'CENA', 25,'Yes','trumpet'),
+    (20, 'ARTHUR', 'ARCHER', 24,'No','bea'),
+    (21, 'BERNICE', 'NASH', 28,'No','nice'),
+    (22, 'DANIELLA', 'VASZUEZ', 34,'No','test');
 SELECT * FROM employee;
 SELECT * FROM person NATURAL JOIN employee;
 
@@ -161,13 +167,12 @@ INSERT INTO location(location_name, city) VALUES
     ('San Francisco Downtown Center', 'San Francisco');
 SELECT * FROM location;
 
-
-INSERT INTO appointment(first_name, last_name, birthday) VALUES
-	('Anderson', 'Pamela', '2000-10-21'),
-    ('Arcand', 'Denys', '1995-06-04'),
-    ('Carey', 'Jim', '1997-07-15'),
-    ('Pearson', 'Lester', '1999-09-30'),
-    ('Orr', 'Robert', '1990-10-12'),
-    ('Ronaldo', 'Cristiano', '1990-10-12');
+INSERT INTO appointment(first_name, last_name, appointment_date, time) VALUES
+	('Anderson', 'Pamela', '2000-10-21', '9:00'),
+    ('Arcand', 'Denys', '1995-06-04', '10:30'),
+    ('Carey', 'Jim', '1997-07-15', '11:00'),
+    ('Pearson', 'Lester', '1999-09-30', '3:00'),
+    ('Orr', 'Robert', '1990-10-12', '2:00'),
+    ('Ronaldo', 'Cristiano', '1990-10-12', '4:30'),
+    ('Neymar', 'Jr', '1992-02-05', '5:00');
 SELECT * FROM appointment;
-    

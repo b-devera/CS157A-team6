@@ -3,10 +3,10 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-  
     <title>Admin</title>
     </head>
   <body>
+  <button type="button" name="Logout" onclick="window.location='employeeLogin.jsp'">Logout</button>
     <center><h1>JBK Blood Bank Admin Portal</h1><center>
     <input type="button" value="Landing Page" onclick="window.location='home.jsp'" ><br/><br/>
     <input type="button" value="People" onclick="window.location='people.jsp'" ><br/><br/>

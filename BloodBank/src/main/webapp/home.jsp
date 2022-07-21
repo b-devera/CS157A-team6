@@ -7,8 +7,9 @@
     </head>
   <body>
     <center><h1>JBK Blood Bank</h1><center>
-    <input type="button" value="Login" onclick="window.location='login.jsp'" ><br/><br/>
+    <input type="button" value="Donor Login" onclick="window.location='login.jsp'" ><br/><br/>
     <input type="button" value="Register" onclick="window.location='register.jsp'" ><br/><br/>
+    <input type="button" value="Employee Portal" onclick="window.location='employeeLogin.jsp'" ><br/><br/>
     </center>
    </table>
   </body>
