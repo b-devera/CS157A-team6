@@ -167,7 +167,7 @@ INSERT INTO location(location_name, city) VALUES
     ('San Francisco Downtown Center', 'San Francisco');
 SELECT * FROM location;
 
-INSERT INTO appointment(first_name, last_name, appointment_date, time) VALUES
+INSERT INTO appointment(first_name, last_name, birthday, time) VALUES
 	('Anderson', 'Pamela', '2000-10-21', '9:00'),
     ('Arcand', 'Denys', '1995-06-04', '10:30'),
     ('Carey', 'Jim', '1997-07-15', '11:00'),
@@ -176,3 +176,4 @@ INSERT INTO appointment(first_name, last_name, appointment_date, time) VALUES
     ('Ronaldo', 'Cristiano', '1990-10-12', '4:30'),
     ('Neymar', 'Jr', '1992-02-05', '5:00');
 SELECT * FROM appointment;
+    
