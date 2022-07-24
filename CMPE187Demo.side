@@ -1,0 +1,225 @@
+{
+  "id": "45ae6dcc-6a4d-4440-a06b-bcd840b74821",
+  "version": "2.0",
+  "name": "Demo",
+  "url": "https://developer.pandorabots.com",
+  "tests": [{
+    "id": "0c83078d-0243-42e8-803b-d751f7e48216",
+    "name": "Demo1",
+    "commands": [{
+      "id": "6ea7186b-8485-4b00-9b16-75cb6210677f",
+      "comment": "",
+      "command": "open",
+      "target": "/home.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7e951fc8-38fa-4c8f-92fc-79ce8b2f1f01",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1353x758",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "26efc268-e08f-4132-b895-e1e90eea700a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.pb-widget__description__chat-now__button",
+      "targets": [
+        ["css=.pb-widget__description__chat-now__button", "css:finder"],
+        ["xpath=//div[@id='pb-widget']/div/div/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Chat Now')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "49ea5558-b36e-4b49-a41d-294efa6f1d81",
+      "comment": "",
+      "command": "type",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Hello!"
+    }, {
+      "id": "19d21574-246f-4495-bb39-6d8e6dff1e52",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "ea47ca95-c429-4c98-bc82-74b9f30705af",
+      "comment": "",
+      "command": "click",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c2a1a01-20b0-4b59-8acf-34c4c4555359",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "158e7fe4-8ae7-4288-9d6f-c74e8a9e3c03",
+      "comment": "",
+      "command": "type",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "What is the temperature today?"
+    }, {
+      "id": "f4393d2d-1628-4817-a600-c029d9af9630",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "8c648788-e8a2-451c-9f0a-a9a719a04b9c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1ab3ffb9-2d80-4afc-9092-357a5cf8fd42",
+      "comment": "",
+      "command": "type",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "sdfsfwewe"
+    }, {
+      "id": "4fe5ee0c-fa63-49f5-9c8f-8ffabe309b10",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "4a4c8abf-e0e4-4a03-9fd5-15880534ebbd",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "41a0d731-36d2-4488-ae3e-12f3bdca0d19",
+      "comment": "",
+      "command": "type",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Can you multiple 2 time 2?"
+    }, {
+      "id": "be0b67be-7bda-4dce-922e-d05e4b10fd26",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "38a21fc3-7b19-4882-9b62-c74f3eb2188d",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d287e9b5-03b6-40b4-9b41-6af337fbbb86",
+      "comment": "",
+      "command": "type",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "What is a leap year?"
+    }, {
+      "id": "b95b8c88-9f20-4b28-b13a-3d8a32940601",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=pb-widget-input-field",
+      "targets": [
+        ["id=pb-widget-input-field", "id"],
+        ["css=#pb-widget-input-field", "css:finder"],
+        ["xpath=//input[@id='pb-widget-input-field']", "xpath:attributes"],
+        ["xpath=//form[@id='pb-widget-input-form']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "43eeba5c-efa5-40aa-834c-f49fd5734894",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "9003f1c2-357c-4331-826f-b68340f396fd",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0c83078d-0243-42e8-803b-d751f7e48216"]
+  }],
+  "urls": ["https://developer.pandorabots.com/"],
+  "plugins": []
+}
