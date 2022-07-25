@@ -19,18 +19,14 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM person NATURAL JOIN patient");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM patient");
             %>
             <table border="2">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Gender</th>
-                <th>Age</th>
                 <th>Blood Type</th>
-                <th>Height (in)</th>
-                <th>Weight (lbs)</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -38,11 +34,6 @@
                     <td><%=rs.getString(2)%></td>
                     <td><%=rs.getString(3)%></td>
                     <td><%=rs.getString(4)%></td>
-                    <td><%=rs.getInt(5)%></td>
-                    <td><%=rs.getString(6)%></td>
-                    <td><%=rs.getInt(7)%></td>
-                    <td><%=rs.getInt(8)%></td>
-                </tr>
             <% }
             rs.close();
             stmt.close();

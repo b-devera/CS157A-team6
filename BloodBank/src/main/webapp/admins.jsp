@@ -3,13 +3,12 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Registered Employees</title>
+    <title>Registered Admins</title>
     </head>
   <body>
   <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Registered Employees</h1>
-    <input type="button" value="Add New Employee" onclick="window.location='employeeRegister.jsp'" ><br/><br/>
-    <input type="button" value="Remove Employee" onclick="window.location='employeeDelete.jsp'"><br/><br/>
+    <center><h1>Registered Admins</h1>
+    <input type="button" value="Add New Admin" onclick="window.location='adminRegister.jsp'" ><br/><br/>
     <center>
     <% 
     String db = "BloodBank";
@@ -21,7 +20,7 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM admin");
             %>
             <table border="2">
             <tr>

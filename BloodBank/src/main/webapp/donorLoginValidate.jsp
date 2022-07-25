@@ -14,7 +14,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("SELECT id, username, password FROM donor WHERE username=? AND password=?");
+			PreparedStatement pst = con.prepareStatement("SELECT id, username, password FROM donor2 WHERE username=? AND password=?");
 			pst.setString(1, username);
 			pst.setString(2, password);
 			ResultSet rs = pst.executeQuery();  
@@ -23,7 +23,7 @@
 				getServletContext().getRequestDispatcher("/donorPortal.jsp").include(request,response);	
 			}
 			else{  
-   				getServletContext().getRequestDispatcher("/donorError.jsp").include(request,response);
+   				getServletContext().getRequestDispatcher("/donorLoginError.jsp").include(request,response);
 			}
 		} catch(Exception e){       
 			out.println(e);       
@@ -33,6 +33,6 @@
 		%>
 		<center><p style="color:red">Invalid Login Credentials.</p></center>
 		<%
-			getServletContext().getRequestDispatcher("/login.jsp").include(request,response);
+			getServletContext().getRequestDispatcher("/donorLogin.jsp").include(request,response);
 	}
 %>

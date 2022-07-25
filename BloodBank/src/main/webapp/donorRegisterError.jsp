@@ -6,9 +6,9 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<center><p style="color:red">Invalid Login Credentials.</p></center>
+		<center><p style="color:red">Invalid Credentials.</p></center>
 		<%
-			getServletContext().getRequestDispatcher("/login.jsp").include(request,response);	
+			getServletContext().getRequestDispatcher("/donorRegister.jsp").include(request,response);	
 		%>
 	</body>
 </html>

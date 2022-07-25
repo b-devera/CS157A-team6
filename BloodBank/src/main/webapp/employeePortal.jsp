@@ -13,7 +13,6 @@
 			String db= "bloodbank";
 			String user = "root";
 			String pw = "password";
-
 			try{
 				int employeeId =  Integer.parseInt(request.getParameter("empID"));
 				String employeePass = request.getParameter("txtPwd");
@@ -25,12 +24,15 @@
         		while (rs.next()) {
                     out.println(" "+rs.getString(1) + " "+ rs.getString(2));
                 }
+        		stmt.close();
+        		con.close();
    			} catch(Exception e){       
        			out.println(e);       
    			}   
 		%>
 		<br/><br/><input type="button" value="Landing Page" onclick="window.location='home.jsp'" ><br/><br/>
 		<input type="button" value="Donors" onclick="window.location='donors.jsp'" ><br/><br/>
+		<input type="button" value="Inventory" onclick="window.location='inventory.jsp'"><br/><br/>
 		</center>
 	</body>
 </html>

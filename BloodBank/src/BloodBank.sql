@@ -11,6 +11,29 @@ CREATE TABLE person (
     age INT NOT NULL
 );
 
+DROP TABLE IF EXISTS admin;
+CREATE TABLE admin(
+	id INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(36) NOT NULL,
+    last_name VARCHAR(36) NOT NULL,
+    age INT NOT NULL,
+    gender CHAR(1) NOT NULL,
+    password VARCHAR(36) NOT NULL
+);
+INSERT INTO admin(first_name,last_name,age,gender,password)
+VALUES('Admin','Test',42,'M','password');
+
+DROP TABLE IF EXISTS inventory;
+CREATE TABLE inventory (
+	bag_id INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	donor_id INT(8) NOT NULL REFERENCES donor2(id),
+    employee_id INT(8) NOT NULL REFERENCES employee(id),
+    blood_type VARCHAR(3) NOT NULL,
+    quantity INT(8) NOT NULL,
+    expiration DATE NOT NULL
+);
+INSERT INTO inventory(donor_id,employee_id,blood_type,quantity,expiration) VALUES(11,23,'AB+',500,'2022-08-01');
+
 DROP TABLE IF EXISTS donor;
 CREATE TABLE donor (
 	id INT(8) NOT NULL PRIMARY KEY REFERENCES person(id),
@@ -22,22 +45,42 @@ CREATE TABLE donor (
     password VARCHAR(36) NOT NULL
 );
 
-DROP TABLE IF EXISTS patient;
-CREATE TABLE patient (
-	id INT(8) NOT NULL PRIMARY KEY REFERENCES person(id),
+CREATE TABLE donor2 (
+	id INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(36) NOT NULL,
+    last_name VARCHAR(36) NOT NULL,
+    gender CHAR(1) NOT NULL,
+    age INT NOT NULL,
     blood_type VARCHAR(3) NOT NULL,
     heightIN INT NOT NULL,
-    weightLB INT NOT NULL
+    weightLB INT NOT NULL,
+    username VARCHAR(36) NOT NULL UNIQUE,
+    password VARCHAR(36) NOT NULL
 );
+INSERT INTO donor2(first_name,last_name,gender,age,blood_type,heightIN,WeightLB,username,password)
+VALUES('First','Test','M',23,'AB+',70,210,'test','test');
+
+DROP TABLE IF EXISTS patient;
+CREATE TABLE patient (
+	id INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(36) NOT NULL,
+    last_name VARCHAR(36) NOT NULL,
+    blood_type VARCHAR(3) NOT NULL,
+    username VARCHAR(36) NOT NULL UNIQUE,
+    password VARCHAR(36) NOT NULL
+);
+
+INSERT INTO patient(first_name,last_name,blood_type,username,password)
+VALUES('Patient','Zero','O-','pz','pz');
 
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
-	id INT(8) NOT NULL PRIMARY KEY REFERENCES person(id),
+	id INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(36) NOT NULL REFERENCES person(first_name),
     last_name VARCHAR(36) NOT NULL REFERENCES person(last_name),
     age INT NOT NULL REFERENCES person(age),
-    admin_status VARCHAR(3) NOT NULL,
-    password VARCHAR(45) NOT NULL
+    gender CHAR(1) NOT NULL,
+    password VARCHAR(36) NOT NULL
 );
 
 DROP TABLE IF EXISTS donation;
@@ -75,7 +118,7 @@ CREATE TABLE appointment (
 );
 
 
-INSERT INTO person(first_name, last_name, gender, age) VALUES
+/*INSERT INTO person(first_name, last_name, gender, age) VALUES
 	('JOHN', 'DOE', 'M', 22),
     ('JANE', 'DUNCAN', 'F', 21),
     ('JEREMIAH', 'REDMOND', 'M', 36),
@@ -99,7 +142,7 @@ INSERT INTO person(first_name, last_name, gender, age) VALUES
     ('BERNICE', 'NASH', 'F', 28),
     ('DANIELLA', 'VASZUEZ', 'F', 34);
 SELECT * FROM person;
-
+*/
 INSERT INTO donor VALUES
 	(1, 'O+', 70, 175, NOW(),'deerjohn','test'),
     (2, 'AB-', 62, 125, NOW(),'jduncan','password'),
@@ -109,7 +152,7 @@ INSERT INTO donor VALUES
 SELECT * FROM donor;
 SELECT * FROM person NATURAL JOIN donor;
 
-INSERT INTO patient VAlUES
+/*INSERT INTO patient VAlUES
 	(4, 'B-', 63, 145),
     (6, 'O-', 65, 160),
     (7, 'B+', 67, 160),
@@ -117,20 +160,20 @@ INSERT INTO patient VAlUES
     (10, 'AB+', 63, 150);
 SELECT * FROM patient;
 SELECT * FROM person NATURAL JOIN patient;
-
+*/
 INSERT INTO employee VALUES
-	(11, 'MADELINE', 'STEWART', 24, 'No','Stew'),
-    (12, 'HANA', 'WHEELER', 26,'Yes','password'),
-    (13, 'FRANKLIN', 'FORSTER', 29,'No','tree'),
-    (14, 'AZRA', 'PEARSON', 31,'Yes','book'),
-    (15, 'LESLEY', 'WARNER', 32,'No','les'),
-    (16, 'ABIGAIL', 'HAYES', 27,'No','pie314'),
-    (17, 'CLAIRE', 'MORIN', 36,'No','password1234'),
-    (18, 'KEVIN', 'GARLAND', 37,'No','kgar'),
-    (19, 'JOHN', 'CENA', 25,'Yes','trumpet'),
-    (20, 'ARTHUR', 'ARCHER', 24,'No','bea'),
-    (21, 'BERNICE', 'NASH', 28,'No','nice'),
-    (22, 'DANIELLA', 'VASZUEZ', 34,'No','test');
+	(11, 'MADELINE', 'STEWART', 24, 'F','Stew'),
+    (12, 'HANA', 'WHEELER', 26,'F','password'),
+    (13, 'FRANKLIN', 'FORSTER', 29,'M','tree'),
+    (14, 'AZRA', 'PEARSON', 31,'M','book'),
+    (15, 'LESLEY', 'WARNER', 32,'F','les'),
+    (16, 'ABIGAIL', 'HAYES', 27,'F','pie314'),
+    (17, 'CLAIRE', 'MORIN', 36,'F','password1234'),
+    (18, 'KEVIN', 'GARLAND', 37,'M','kgar'),
+    (19, 'JOHN', 'CENA', 25,'M','trumpet'),
+    (20, 'ARTHUR', 'ARCHER', 24,'M','bea'),
+    (21, 'BERNICE', 'NASH', 28,'F','nice'),
+    (22, 'DANIELLA', 'VASZUEZ', 34,'F','test');
 SELECT * FROM employee;
 SELECT * FROM person NATURAL JOIN employee;
 
@@ -167,7 +210,7 @@ INSERT INTO location(location_name, city) VALUES
     ('San Francisco Downtown Center', 'San Francisco');
 SELECT * FROM location;
 
-INSERT INTO appointment(first_name, last_name, birthday, time) VALUES
+INSERT INTO appointment(first_name, last_name, appointment_date, time) VALUES
 	('Anderson', 'Pamela', '2000-10-21', '9:00'),
     ('Arcand', 'Denys', '1995-06-04', '10:30'),
     ('Carey', 'Jim', '1997-07-15', '11:00'),
@@ -176,4 +219,3 @@ INSERT INTO appointment(first_name, last_name, birthday, time) VALUES
     ('Ronaldo', 'Cristiano', '1990-10-12', '4:30'),
     ('Neymar', 'Jr', '1992-02-05', '5:00');
 SELECT * FROM appointment;
-    

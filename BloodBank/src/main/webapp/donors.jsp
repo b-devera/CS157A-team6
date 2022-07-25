@@ -19,7 +19,7 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM person NATURAL JOIN donor");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM donor2");
             %>
             <table border="2">
             <tr>
@@ -31,7 +31,6 @@
                 <th>Blood Type</th>
                 <th>Height (in)</th>
                 <th>Weight (lbs)</th>
-                <th>Donor Eligibility</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -43,7 +42,6 @@
                     <td><%=rs.getString(6)%></td>
                     <td><%=rs.getInt(7)%></td>
                     <td><%=rs.getInt(8)%></td>
-                    <td><%=rs.getDate(9)%></td>
                 </tr>
             <% }
             rs.close();

@@ -9,14 +9,16 @@
   <button type="button" name="Logout" onclick="window.location='employeeLogin.jsp'">Logout</button>
     <center><h1>JBK Blood Bank Admin Portal</h1><center>
     <input type="button" value="Landing Page" onclick="window.location='home.jsp'" ><br/><br/>
-    <input type="button" value="People" onclick="window.location='people.jsp'" ><br/><br/>
+    <%-- <input type="button" value="People" onclick="window.location='people.jsp'" ><br/><br/> --%>
     <input type="button" value="Employees" onclick="window.location='employees.jsp'" ><br/><br/>
+    <input type="button" value="Admins" onclick="window.location='admins.jsp'"><br/><br/>
     <input type="button" value="Donors" onclick="window.location='donors.jsp'" ><br/><br/>
     <input type="button" value="Patients" onclick="window.location='patients.jsp'" ><br/><br/>
-    <input type="button" value="Donation Log" onclick="window.location='donations.jsp'" ><br/><br/>
+    <input type="button" value="Inventory" onclick="window.location='inventoryAdmin.jsp'"><br/><br/>
+    <%-- <input type="button" value="Donation Log" onclick="window.location='donations.jsp'" ><br/><br/>
     <input type="button" value="Transfusion Log" onclick="window.location='transfusions.jsp'" ><br/><br/>
     <input type="button" value="Locations" onclick="window.location='locations.jsp'" ><br/><br/>
-    <input type="button" value="Appointments" onclick="window.location='appointment.jsp'" ><br/><br/>
+    <input type="button" value="Appointments" onclick="window.location='appointment.jsp'" ><br/><br/> --%>
     </center>
    </table>
   </body>

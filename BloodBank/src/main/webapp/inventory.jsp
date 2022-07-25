@@ -3,13 +3,12 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Registered Employees</title>
+    <title>Inventory</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Registered Employees</h1>
-    <input type="button" value="Add New Employee" onclick="window.location='employeeRegister.jsp'" ><br/><br/>
-    <input type="button" value="Remove Employee" onclick="window.location='employeeDelete.jsp'"><br/><br/>
+  <button type="button" name="back" onclick="history.back()">Back</button>
+    <center><h1>Inventory</h1>
+    <input type="button" value="Add New Blood Bag" onclick="window.location='inventoryInsert.jsp'" ><br/><br/>
     <center>
     <% 
     String db = "BloodBank";
@@ -21,23 +20,26 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM inventory");
             %>
             <table border="2">
             <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Gender</th>
+                <th>Bag ID</th>
+                <th>Donor ID</th>
+                <th>Employee ID</th>
+                <th>Blood Type</th>
+                <th>Quantity mL</th>
+                <th>Expiration</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
-                    <td><%=rs.getString(2)%></td>
-                    <td><%=rs.getString(3)%></td>
-                    <td><%=rs.getInt(4)%></td>
-                    <td><%=rs.getString(5)%></td>
+                    <td><%=rs.getInt(2)%></td>
+                    <td><%=rs.getInt(3)%></td>
+                    <td><%=rs.getString(4)%></td>
+                    <td><%=rs.getInt(5)%></td>
+                    <td><%=rs.getString(6)%></td>
+
                 </tr>
             <% }
             rs.close();

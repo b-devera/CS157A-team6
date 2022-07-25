@@ -5,18 +5,18 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Login</title>
+		<title>Patient Login</title>
 	</head>
 	<body>
 		<button type="button" name="back" onclick="window.location='home.jsp'">Back</button>
 
 		<div align=center>
-			<h1>Donor Login</h1>
+			<h1>Patient Login</h1>
 		</div>
-		<form action=donorValidate.jsp method=post>
+		<form action=patientLoginValidate.jsp method=post>
 		<table align=center>
-			<tr><td>Username</td><td><input type=text name=txtName></td></tr>
-			<tr><td>Password</td><td><input type=password name=txtPwd></td></tr>
+			<tr><td>Username</td><td><input type=text name=ptUsername></td></tr>
+			<tr><td>Password</td><td><input type=password name=pwd></td></tr>
 		</table>
 		<table align=center>
 			<tr>
@@ -25,7 +25,7 @@
 			</tr>
 		</table>
 			<br><div align=center><input type=submit value=Login></div></br>
-			<div align=center><a href="register.jsp">Don't have an account? Register</a></div>
+			<div align=center><a href="patientRegister.jsp">Don't have an account? Register</a></div>
 		</form>
 	</body>
 </html>

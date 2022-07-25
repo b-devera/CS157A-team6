@@ -16,20 +16,20 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("SELECT id, admin_status, password FROM employee WHERE id=? AND password=?");
+			PreparedStatement pst = con.prepareStatement("SELECT id, password FROM employee WHERE id=? AND password=?");
 			pst.setInt(1, employeeId);
 			pst.setString(2, employeePass);
 			ResultSet rs = pst.executeQuery();  
 			
-			if(rs.next()){
-				String admin = rs.getString("admin_status");
-				if(admin.equals("Yes")){
-					getServletContext().getRequestDispatcher("/admin.jsp").include(request,response);
-				} else {
+			PreparedStatement pst2 = con.prepareStatement("SELECT id, password FROM admin WHERE id=? AND password=?");
+			pst2.setInt(1, employeeId);
+			pst2.setString(2, employeePass);
+			ResultSet rs2 = pst2.executeQuery();
+			if(rs.next()){	
 					getServletContext().getRequestDispatcher("/employeePortal.jsp").include(request,response);
-				}
-			}
-			else{  
+			}else if(rs2.next()){  
+				getServletContext().getRequestDispatcher("/adminPortal.jsp").include(request,response);
+			}else{
    				getServletContext().getRequestDispatcher("/employeeError.jsp").include(request,response);
 			}
 		} catch(Exception e){       

@@ -32,35 +32,7 @@
   <body>
     <button type="button" name="back" onclick="window.location='home.jsp'">Back</button>
     <center><h1>Donor Registration</h1>
-	<%
-                     String db= "bloodbank";
-                     String user = "root";
-                     String pw = "password";
-                     try{
-                         java.sql.Connection con;
-                         Class.forName("com.mysql.cj.jdbc.Driver");
-                         con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);
-                         Statement stmt = con.createStatement();
-                         
-                         String first = request.getParameter("first_name");
-                         String last = request.getParameter("last_name");
-                         int age = Integer.parseInt(request.getParameter("age"));
-                         String gender = request.getParameter("gender");
-                         String blood = request.getParameter("bloodType");
-                         int heightInt = Integer.parseInt(request.getParameter("height"));
-                         int weightInt = Integer.parseInt(request.getParameter("weight"));
-                         if(!first.isEmpty() && !last.isEmpty() && age !=0 && !gender.isEmpty()) {
-                        	 int result = stmt.executeUpdate("INSERT INTO bloodbank.person(first_name,last_name,gender,age) VALUES('"+first+"','"+last+"','"+gender+"','"+age+"')");
-                        	 out.print("Data Inserted!");
-                         }
-                         
-                      }catch(SQLException e) {
-                         e.printStackTrace();
-                      } catch (Exception exc){
-                        exc.printStackTrace();
-                       }
-                 %>
-    <form action="register.jsp" method="post">
+    <form action="donorRegisterValidate.jsp" method="post">
     <p>
         <label>
             First Name

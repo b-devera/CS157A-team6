@@ -3,13 +3,19 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Registered Employees</title>
+    <title>Employees</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Registered Employees</h1>
-    <input type="button" value="Add New Employee" onclick="window.location='employeeRegister.jsp'" ><br/><br/>
-    <input type="button" value="Remove Employee" onclick="window.location='employeeDelete.jsp'"><br/><br/>
+  <button type="button" name="back" onclick="window.location='employees.jsp'">Back</button>
+    <center><h1>Inventory</h1>
+    <form action="employeeDeleteValidate.jsp" method="post">
+    <p>
+    	Enter Employee ID of Employee to be removed:
+    	<input type="text" name="removeId">
+    </p>
+    <input type="reset" value="Clear" />
+    <input type="submit" value="Submit"/>
+    </form>
     <center>
     <% 
     String db = "BloodBank";
@@ -20,7 +26,6 @@
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
-            
             ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
             %>
             <table border="2">
