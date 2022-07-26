@@ -32,7 +32,7 @@ CREATE TABLE inventory (
     quantity INT(8) NOT NULL,
     expiration DATE NOT NULL
 );
-INSERT INTO inventory(donor_id,employee_id,blood_type,quantity,expiration) VALUES(11,23,'AB+',500,'2022-08-01');
+INSERT INTO inventory(donor_id,employee_id,blood_type,quantity,expiration) VALUES(1,23,'AB+',500,'2022-08-01');
 
 DROP TABLE IF EXISTS donor;
 CREATE TABLE donor (
