@@ -18,18 +18,27 @@
 				String username = request.getParameter("txtName");
 				String password = request.getParameter("txtPwd");
 				
+				session.setAttribute("user_name", username);
+				
 				Class.forName("com.mysql.jdbc.Driver"); 
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
 				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT first_name, last_name, username FROM donor2  WHERE username='"+username+"'");
+				ResultSet rs = stmt.executeQuery("SELECT id, first_name, last_name, username FROM donor2  WHERE username='"+username+"'");
 				out.println("Hello ");
+				
+
+		         
 				while(rs.next()){
-					out.println(rs.getString(1) + " " + rs.getString(2));
+					 int donorID = rs.getInt(1);
+			         request.getSession().setAttribute("donor_id", rs.getInt(1));
+					out.println(rs.getString(2) + " " + rs.getString(3));
 				}
+				out.println(", Welcome to Jurassic Park");
 			}catch(Exception e){
 				out.println(e);
 			}
 		%>
+		<br><br><input type="button" value="View Information" onclick="window.location='donorInfo.jsp'"><br/><br/>
 		</center>
 	</body>
 </html>
