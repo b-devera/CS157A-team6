@@ -2,98 +2,24 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <html>
-<style>
-    div.ex
-    {
-        width:300px;
-        padding:10px;
-        border:5px solid gray;
-        margin:0px;
-    }
-#genderBox{
-    margin-left: 22px;
-}
-#ageBox{
-    margin-left: 42px;
-}
-#weightBox{
-    margin-right: 10px
-}
-#bloodBox{
-    margin-right: 4px
-}
-#userBox{
-	margin-left: 2px
-}
-#passBox{
-	margin-left: 5px
-}
-#lastRow {
-    margin-left: 0px;
-}
 </style>
   <head>
-    <title>Information Update</title>
+    <title>Eligibility Update</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Information Update</h1>
-    <form action="donorInfoUpdateValidate.jsp" method="post">
+  <button type="button" name="back" onclick="window.location='donorsAdminRedirect.jsp'">Back</button>
+    <center><h1>Eligibility Update</h1>
+    <form action="donorUpdateEligValidate.jsp" method="post">
           <p>
         <label>
-            First Name
-            <input type="text" name="first_name" id="first_nameBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Last Name
-            <input type="text" name="last_name"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Age
-            <input type="parseInt" name="age" id="ageBox">
-        </label>
-    </p>
-    <p>
-        Gender:
-        <select name="gender" value="gender" id="genderBox">
-            <option value="" name="no"> </option>
-            <option value="M" name="M">M</option>
-            <option value="F" name="F">F</option>
-        </select>
-
-    </p>
-    <p>
-        <label>
-            Blood Type
-            <input type="text" name="bloodType" id="bloodBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Height (in)
-            <input type="text" name="height"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Weight (lbs)
-            <input type="text" name="weight" id="weightBox"/>
+            Donor ID
+            <input type="text" name="donorId" />
         </label>
     </p>
     <p>
     	<label>
-    		Username
-    		<input type="text" name = "username" id="userBox"/>
-    	</label>
-    </p>
-    <p>
-    	<label>
-    		Password
-    		<input type="password" name="password" id="passBox"/>
+    		Eligibility
+    		<input type="DATE" name="eligibility_date"/>
     	</label>
 	</p>
             <input type="reset" value="Clear" />
@@ -105,13 +31,11 @@
     String user = "root";
     String pw = "password";
         try {
-        	int id = (Integer) session.getAttribute("donor_id");
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor2 WHERE id= ?");
-            pstmt.setInt(1,id);
-            
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor2");
+           
             ResultSet rs = pstmt.executeQuery();
            
             %>

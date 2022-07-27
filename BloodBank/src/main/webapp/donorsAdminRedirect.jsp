@@ -6,9 +6,9 @@
     <title>Registered Donors</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='employeePortal.jsp'">Back</button>
+  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
     <center><h1>Registered Donors</h1>
-    <input type="button" value="Update Donor Eligibility" onclick="window.location='donorUpdateElig.jsp'"><br/><br/>
+    <input type="button" value="Update Donor Eligibility" onclick="window.location='donorUpdateEligAdmin.jsp'"><br/><br/>
     <center>
     <% 
     String db = "BloodBank";

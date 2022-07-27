@@ -12,7 +12,7 @@
     <%-- <input type="button" value="People" onclick="window.location='people.jsp'" ><br/><br/> --%>
     <input type="button" value="Employees" onclick="window.location='employees.jsp'" ><br/><br/>
     <input type="button" value="Admins" onclick="window.location='admins.jsp'"><br/><br/>
-    <input type="button" value="Donors" onclick="window.location='donors.jsp'" ><br/><br/>
+    <input type="button" value="Donors" onclick="window.location='donorsAdminRedirect.jsp'" ><br/><br/>
     <input type="button" value="Patients" onclick="window.location='patients.jsp'" ><br/><br/>
     <input type="button" value="Inventory" onclick="window.location='inventoryAdmin.jsp'"><br/><br/>
     <%-- <input type="button" value="Donation Log" onclick="window.location='donations.jsp'" ><br/><br/>

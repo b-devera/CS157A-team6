@@ -38,6 +38,7 @@
                 <th> Weight (lbs) </th>
                 <th> Username </th>
                 <th> Password </th>
+                <th> Eligibility </th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -51,6 +52,7 @@
                     <td><%=rs.getInt(8)%></td>
                     <td><%=rs.getString(9)%></td>
                     <td><%=rs.getString(10)%></td>
+                    <td><%=rs.getString(11) %></td>
 
                 </tr>
             <% }
