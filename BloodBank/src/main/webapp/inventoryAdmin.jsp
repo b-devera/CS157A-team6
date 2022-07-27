@@ -8,9 +8,8 @@
   <body>
   <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
     <center><h1>Inventory</h1>
-    <input type="button" value="Add item" onclick="window.location='inventoryInsert.jsp'" >
-    <input type="button" value="Delete item" onclick="window.location='inventoryDelete.jsp'" >
-    <input type="button" value="Update Item" onclick="window.location='inventoryUpdate.jsp'"><br/><br/>
+    <input type="button" value="Add New Blood Bag" onclick="window.location='inventoryInsert.jsp'" ><br/><br/>
+    <input type="button" value="Delete Blood Bag" onclick="window.location='inventoryDelete.jsp'" ><br/><br/>
     <center>
     <% 
     String db = "BloodBank";
