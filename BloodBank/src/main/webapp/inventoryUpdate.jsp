@@ -2,16 +2,78 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <html>
+<style>
+    div.ex
+    {
+        width:300px;
+        padding:10px;
+        border:5px solid gray;
+        margin:0px;
+    }
+#bagBox{
+	margin-right: 120px 
+}
+#bloodBox{
+    margin-right: 1px
+}
+#qBox{
+    margin-left: 17px;
+}
+#expBox{
+	margin-right:30px
+}
+#donBox{
+    margin-left: 10px;
+}
+#empBox{
+    margin-right: 15px
+}
+#lastRow {
+    margin-left: 0px;
+}
+</style>
   <head>
-    <title>Inventory</title>
+    <title>Inventory Update</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Inventory</h1>
-    <input type="button" value="Add New Blood Bag" onclick="window.location='inventoryInsert.jsp'" >
-    <input type="button" value="Delete Blood Bag" onclick="window.location='inventoryDelete.jsp'" >
-      <input type="button" value="Update Item" onclick="window.location='inventoryUpdate.jsp'"><br/><br/>
-    <center>
+  <button type="button" name="back" onclick="window.location='inventoryAdmin.jsp'">Back</button>
+    <center><h1>Inventory Update</h1>
+    <form action="inventoryUpdateValidate.jsp" method="post">
+    <p>
+    	Enter Bag ID of Desired Item:
+    	<input type="text" name="bagid" id="bagBox">
+    <p>
+        Donor ID:
+        <input type="text" name="donorid" id="donBox">
+    </p>
+    <p>
+    	<label>
+    		Employee ID:
+    		<input type="text" name="empID" id="empBox"/>
+    	</label>
+	</p>
+    <p>
+        <label>
+            Blood Type:
+            <input type="text" name="blood_type" id="bloodBox"/>
+        </label>
+    </p>
+    <p>
+        <label>
+            Quantity:
+            <input type="text" name="quantity" id="qBox"/>
+        </label>
+    </p>
+        <p>
+        <label>
+            Expiration Date:
+            <input type="DATE" name="expiration" id="expBox">
+        </label>
+    </p>
+            <input type="reset" value="Clear" />
+            <input type="submit" value="Submit"/>
+  	</form>
+  	<center>
     <% 
     String db = "BloodBank";
     String user = "root";
