@@ -21,7 +21,9 @@ CREATE TABLE admin(
     password VARCHAR(36) NOT NULL
 );
 INSERT INTO admin(first_name,last_name,age,gender,password)
-VALUES('Admin','Test',42,'M','password');
+VALUES('Admin','Test',42,'M','password'),
+('Darth','Vader',50,'M','force'),
+('Obiwan','Kenobi',60,'M','highground');
 
 DROP TABLE IF EXISTS inventory;
 CREATE TABLE inventory (
@@ -45,6 +47,7 @@ CREATE TABLE donor (
     password VARCHAR(36) NOT NULL
 );
 
+DROP TABLE IF EXISTS donor2;
 CREATE TABLE donor2 (
 	id INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(36) NOT NULL,
@@ -55,10 +58,15 @@ CREATE TABLE donor2 (
     heightIN INT NOT NULL,
     weightLB INT NOT NULL,
     username VARCHAR(36) NOT NULL UNIQUE,
-    password VARCHAR(36) NOT NULL
+    password VARCHAR(36) NOT NULL,
+    eligibility DATE
 );
 INSERT INTO donor2(first_name,last_name,gender,age,blood_type,heightIN,WeightLB,username,password)
-VALUES('First','Test','M',23,'AB+',70,210,'test','test');
+VALUES('First','Test','M',23,'AB+',70,210,'test','test'),
+	('Mr','Spock','M',102,'B-',72,170,'spock','vulcan'),
+    ('Worf','Mogh','M',54,'AB-',73,190,'klingon','pride'),
+    ('Tom','Rosenthal','M',34,'A-',67,130,'watermelon','pasta'),
+    ('Robert','Smith','M',63,'B+',70,201,'cure','friday');
 
 DROP TABLE IF EXISTS patient;
 CREATE TABLE patient (
@@ -71,7 +79,11 @@ CREATE TABLE patient (
 );
 
 INSERT INTO patient(first_name,last_name,blood_type,username,password)
-VALUES('Patient','Zero','O-','pz','pz');
+VALUES('Patient','Zero','O-','pz','pz'),
+	('Jim','Doe','A+','jimdoe','jim'),
+    ('Brent','Spiner','AB-','data','android'),
+    ('Will','Riker','B+','beard','man')
+;
 
 DROP TABLE IF EXISTS employee;
 CREATE TABLE employee (
@@ -186,7 +198,6 @@ INSERT INTO manages(bag_id, manages_id) VALUES
     (6, 4),
     (7, 3),
     (8, 2);
-
 
 INSERT INTO located_at( location_id, bag_id) VALUES
 	(1, 1),
