@@ -32,7 +32,7 @@ CREATE TABLE inventory (
     quantity INT(8) NOT NULL,
     expiration DATE NOT NULL
 );
-INSERT INTO inventory(donor_id,employee_id,blood_type,quantity,expiration) VALUES(11,23,'AB+',500,'2022-08-01');
+INSERT INTO inventory(donor_id,employee_id,blood_type,quantity,expiration) VALUES(1,23,'AB+',500,'2022-08-01');
 
 DROP TABLE IF EXISTS donor;
 CREATE TABLE donor (
@@ -113,9 +113,150 @@ CREATE TABLE appointment (
 	appointment_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
     first_name VARCHAR(36) NOT NULL,
     last_name VARCHAR(36) NOT NULL,
-    appointment DATE NOT NULL,
+    appointment_date DATE NOT NULL,
     time TIME NOT NULL
 );
+
+DROP TABLE IF EXISTS request;
+CREATE TABLE request (
+	request_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY REFERENCES person(id),
+    request_location CHAR(36) NOT NULL REFERENCES location(location_id),
+    date_request DATE NOT NULL,
+    blood_type_requested CHAR(36) NOT NULL,
+    quantity_requested DECIMAL(5,2) NOT NULL
+    
+);
+
+DROP TABLE IF EXISTs receives;
+CREATE TABLE receives (
+	receives_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY REFERENCES person(id),
+    transfusion_id INT(8) NOT NULL REFERENCES transfusion(transfusion_id),
+    patient_id INT (8) NOT NULL REFERENCES patient(id),
+    nurse_id INT(8) NOT NULL REFERENCES person(id),
+    amount_received DECIMAL(5, 2) NOT NULL
+);
+
+
+DROP TABLE IF EXISTS donates;
+CREATE TABLE donates (
+	donates_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY REFERENCES person(id),
+	donation_id INT(8) NOT NULL REFERENCES person(id),
+    donor_id INT(8) NOT NULL REFERENCES person(id),
+    nurse_id INT(8) NOT NULL REFERENCES person(id),
+    amount_donated DECIMAL(5, 2) NOT NULL
+);
+
+DROP TABLE IF EXISTS bloodBag;
+CREATE TABLE bloodbag (
+	bloodbag_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+	quantity INT(8) NOT NULL,
+    blood_type CHAR(36)
+);
+
+DROP TABLE IF EXISTS blood_inventory;
+CREATE TABLE blood_inventory (
+	bag_id INT(8) NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+    location_id INT(8) NOT NULL REFERENCES location(location_id)
+);
+
+DROP TABLE IF EXISTS has_bloodbag;
+CREATE TABLE has_bloodbag (
+	bag_id INT(8) NOT NULL REFERENCES bloodbag(bloodbag_id),
+    bloodbag_id INT(8) NOT NULL REFERENCES bloodbag(bloodbag_id) 
+);
+
+DROP TABLE IF EXISTS located_at;
+CREATE TABLE located_at (
+	location_id INT(8) NOT NULL REFERENCES location(location_id),
+    bag_id INT(8) NOT NULL REFERENCES blood_inventory(bag_id)
+);
+
+DROP TABLE IF EXISTS manages;
+CREATE TABLE manages (
+	 bag_id INT(8) NOT NULL REFERENCES blood_inventory(bag_id),
+     manages_id INT(8) NOT NULL REFERENCES person(id)
+);
+
+INSERT INTO manages(bag_id, manages_id) VALUES
+	(1, 9),
+    (2, 8),
+    (3, 7),
+    (4, 6),
+    (5, 5),
+    (6, 4),
+    (7, 3),
+    (8, 2);
+
+
+INSERT INTO located_at( location_id, bag_id) VALUES
+	(1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+    (6, 6),
+    (7, 7),
+    (8, 8);
+SELECT * FROM located_at;
+
+INSERT INTO has_bloodbag( bag_id, bloodbag_id) VALUES
+	(1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+    (6, 6),
+    (7, 7),
+    (8, 8);
+SELECT * FROM has_bloodbag;
+
+INSERT INTO blood_inventory(bag_id, location_id) VALUES
+	(1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5),
+    (6, 6),
+    (7, 7),
+    (8, 8),
+    (9, 9),
+    (10, 10);
+SELECT * FROM blood_inventory;
+
+INSERT INTO bloodbag(quantity, blood_type) VALUES
+	('415.47', 'O'),
+    ('617.46', 'A+'),
+    ('454.24', 'B+'),
+    ('245.32', 'A'),
+    ('322.11', 'O+');
+SELECT * FROM bloodbag;
+
+INSERT INTO donates(donation_id, donor_id, nurse_id, amount_donated) VALUES
+	(1, 1, 1, '471.35'),
+    (2, 2, 2, '324.67'),
+    (3, 3, 3, '599.61'),
+    (4, 4, 4, '222.54'),
+    (5, 5, 5, '612.53'),
+    (6, 6, 6, '432.78');
+SELECT * FROM donates;
+
+INSERT INTO request(request_id, request_location, date_request, blood_type_requested, quantity_requested) VALUES
+	(1, 'San Jose', '2022-07-10', 'O+', '533.86'),
+    (2, 'Palo Alto', '2022-01-18', 'B+', '613.27'),
+    (3, 'Fremont', '2022-03-11', 'A+', '345.34'),
+    (4, 'Neward', '2022-04-09', 'AB+', '419.39'),
+    (5, 'Sacramento', '2022-07-21', 'B', '711.21'),
+    (6, 'Reno', '2022-07-22', 'A', '234.61'),
+    (7, 'Gilroy', '2022-07-23', 'O', '545.32');
+SELECT * FROM request;
+
+INSERT INTO receives(receives_id, transfusion_id, patient_id, nurse_id, amount_received) VALUES
+	(1, 1, 1, 1, '355.78'),
+    (2, 2, 2, 2, '634.65'),
+    (3, 3, 3, 3, '246.24'),
+    (4, 4, 4, 4, '635.15'),
+    (5, 5, 5 ,5, '745.15');
+SELECT * FROM receives;
 
 
 /*INSERT INTO person(first_name, last_name, gender, age) VALUES
