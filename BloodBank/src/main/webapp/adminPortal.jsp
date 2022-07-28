@@ -25,8 +25,8 @@
     <input type="button" value="Has_BloodBag" onclick="window.location='has_bloodbag.jsp'" ><br/><br/>
     <input type="button" value="Located At" onclick="window.location='located_at.jsp'" ><br/><br/>
     <input type="button" value="Blood Inventory" onclick="window.location='blood_inventory.jsp'" ><br/><br/>
-    <input type="button" value="Manages" onclick="window.location='manages.jsp'" ><br/><br/>
-    <input type="button" value="Appointments" onclick="window.location='appointment.jsp'" ><br/><br/> --%>
+    <input type="button" value="Manages" onclick="window.location='manages.jsp'" ><br/><br/>--%>
+    <input type="button" value="Appointments" onclick="window.location='appointment.jsp'" ><br/><br/> 
     </center>
    </table>
   </body>

@@ -14,13 +14,13 @@
     margin-right: 1px
 }
 #qBox{
-    margin-left: 17px;
+    margin-right: 10px;
 }
 #expBox{
-	margin-right:30px
+	margin-left:20px
 }
 #donBox{
-    margin-left: 10px;
+    margin-left: 15px;
 }
 #empBox{
     margin-right: 15px
@@ -33,16 +33,12 @@
     <title>Appointment</title>
     </head>
   <body>
-    <button type="button" name="back" onclick="window.location='inventory.jsp'">Back</button>
+    <button type="button" name="back" onclick="history.back()">Back</button>
     <center><h1>Make an Appoinment</h1>
     <form action="appointmentValidate.jsp" method="post">
     <p>
-        Appointment ID:
-        <input type="text" name="appointment_id" id="donBox">
-    </p>
-    <p>
         First Name:
-        <input type="text" name="fname" id="donBox">
+        <input type="text" name="fname" id="empBox">
     </p>
     <p>
     	<label>
@@ -52,20 +48,14 @@
 	</p>
     <p>
         <label>
-            Birthday:
-            <input type="text" name="birthday" id="bloodBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
             Appointment Date:
-            <input type="text" name="date" id="qBox"/>
+            <input type="DATE" name="date" id="qBox"/>
         </label>
     </p>
     <p>
         <label>
             Time:
-            <input type="text" name="time" id="qBox"/>
+            <input type="text" name="time" id="expBox"/>
         </label>
     </p>
             <input type="reset" value="Clear" />

@@ -6,11 +6,11 @@
     <title>Appointment</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='appointment.jsp'">Back</button>
+  <button type="button" name="back" onclick="history.back()">Back</button>
     <center><h1>Appointment</h1>
     <form action="appointmentDeleteValidate.jsp" method="post">
     <p>
-    	Enter here to be removed:
+    	Enter Appointment ID here to be removed:
     	<input type="text" name="removeId">
     </p>
     <input type="reset" value="Clear" />
@@ -33,7 +33,8 @@
                 <th>ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Birthday</th>
+                <th>Appointment Date</th>
+                <th>Appointment Time</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -41,6 +42,7 @@
                     <td><%=rs.getString(2)%></td>
                     <td><%=rs.getString(3)%></td>
                     <td><%=rs.getDate(4)%></td>
+                    <td><%=rs.getString(5)%></td>
                 </tr>
             <% }
             rs.close();

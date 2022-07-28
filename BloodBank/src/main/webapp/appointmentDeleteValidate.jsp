@@ -16,7 +16,7 @@
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
 			PreparedStatement pst = con.prepareStatement("DELETE FROM appointment WHERE appointment_id =?");
-			pst.setInt(1, apptIDINT);
+			pst.setInt(1, appointIDINT);
 		 	int result = pst.executeUpdate();  
 		 	
 			if(result == 1){
