@@ -6,7 +6,7 @@
 	String user = "root";
 	String pw = "password";
 	
-    String appointmentID = request.getParameter("appointment_id")
+    String appointmentID = request.getParameter("appointment_id");
 	String firstName = request.getParameter("fname");
     String lastName = request.getParameter("lname");
 	String appointmentDate = request.getParameter("date");
@@ -15,14 +15,14 @@
 	if(!(appointmentID.equals(null) || appointmentID.equals(""))&&
             !(firstName.equals(null) || firstName.equals(""))&&
             !(lastName.equals(null) || lastName.equals(""))&&
-			!(birthday.equals(null) || birthday.equals(""))&& 
-			!(appointmentDate.equals(null) || appointmentDate.equals(""))&& 
+	    !(appointmentDate.equals(null) || appointmentDate.equals(""))&& 
             !(time.equals(null) || time.equals("")) ) 
 	{
+		int appointment_id = Integer.parseInt(request.getParameter("appointment_id"));
 		String first_name = Integer.parseInt(request.getParameter("fname"));
 		String last_name = Integer.parseInt(request.getParameter("lname"));
 		int appointment_date = Integer.parseInt(request.getParameter("birthday"));
-		int time = Integer.parseInt(request.getParameter("time"));
+		int ti_me = Integer.parseInt(request.getParameter("time"));
 
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
@@ -32,7 +32,7 @@
 			pst.setString(1, first_name);
 			pst.setString(2, last_name);
 			pst.setInt(3, appointment_date);
-			pst.setInt(4, time);
+			pst.setInt(4, ti_me);
 		 	int result = pst.executeUpdate();  
 		 	
 			if(result == 1){
