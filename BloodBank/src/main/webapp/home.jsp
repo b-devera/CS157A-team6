@@ -5,12 +5,38 @@
   <head>
     <title>Home</title>
     </head>
-  <body>
-    <center><h1>JBK Blood Bank</h1><center>
-    <input type="button" value="Donor Login" onclick="window.location='donorLogin.jsp'" ><br/><br/>
-    <input type="button" value="Patient Login" onclick="window.location='patientLogin.jsp'" ><br/><br/>
-    <input type="button" value="Employee Portal" onclick="window.location='employeeLogin.jsp'" ><br/><br/>
+   <div class="header">
+   <h1>JBK Blood Bank</h1>
+   </div>
+  	<center class="body">
+    <input class="btn" type="button" value="Donor Login" onclick="window.location='donorLogin.jsp'" ><br/><br/>
+    <input class="btn" type="button" value="Patient Login" onclick="window.location='patientLogin.jsp'" ><br/><br/>
+    <input class="btn" type="button" value="Employee/Admin Portal" onclick="window.location='employeeLogin.jsp'" ><br/><br/>
     </center>
-   </table>
-  </body>
 </html>
+<style>
+.body {
+	padding-top: 20px;
+}
+.header {
+font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  text-align: center;
+  background: #720000;
+  color: white;
+  font-size: 20px;
+}
+
+.btn {
+font-family: Arial, Helvetica, sans-serif;
+transition-duration: 0.4s;
+  background-color: #720000; 
+  color: white;
+  padding: 10px;
+  border: 2px solid #720000;
+}
+.btn:hover {
+  background-color: white;
+  color: #720000;
+}
+</style>
