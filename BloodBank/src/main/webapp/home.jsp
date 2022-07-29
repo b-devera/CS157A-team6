@@ -10,8 +10,8 @@
    </div>
   	<center class="body">
     <input class="btn" type="button" value="Donor Login" onclick="window.location='donorLogin.jsp'" ><br/><br/>
-    <input class="btn" type="button" value="Patient Login" onclick="window.location='patientLogin.jsp'" ><br/><br/>
-    <input class="btn" type="button" value="Employee/Admin Portal" onclick="window.location='employeeLogin.jsp'" ><br/><br/>
+    <input class="btn2" type="button" value="Patient Login" onclick="window.location='patientLogin.jsp'" ><br/><br/>
+    <input class="btn3" type="button" value="Employee/Admin Portal" onclick="window.location='employeeLogin.jsp'" ><br/><br/>
     </center>
 </html>
 <style>
@@ -26,8 +26,31 @@ font-family: Arial, Helvetica, sans-serif;
   color: white;
   font-size: 20px;
 }
-
 .btn {
+font-family: Arial, Helvetica, sans-serif;
+transition-duration: 0.4s;
+  background-color: #720000; 
+  color: white;
+  padding: 10px 43px;
+  border: 2px solid #720000;
+}
+.btn:hover {
+  background-color: white;
+  color: #720000;
+}
+.btn2 {
+font-family: Arial, Helvetica, sans-serif;
+transition-duration: 0.4s;
+  background-color: #720000; 
+  color: white;
+  padding: 10px 41px;
+  border: 2px solid #720000;
+}
+.btn2:hover {
+  background-color: white;
+  color: #720000;
+}
+.btn3 {
 font-family: Arial, Helvetica, sans-serif;
 transition-duration: 0.4s;
   background-color: #720000; 
@@ -35,7 +58,7 @@ transition-duration: 0.4s;
   padding: 10px;
   border: 2px solid #720000;
 }
-.btn:hover {
+.btn3:hover {
   background-color: white;
   color: #720000;
 }
