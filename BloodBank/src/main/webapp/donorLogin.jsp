@@ -6,26 +6,38 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Login</title>
+		<link rel="stylesheet" href="css/login.css" />
 	</head>
 	<body>
-		<button type="button" name="back" onclick="window.location='home.jsp'">Back</button>
-
-		<div align=center>
+		<div class="header">
+		<button class="btn" type="button" name="back" onclick="window.location='home.jsp'">Home</button>
 			<h1>Donor Login</h1>
 		</div>
+		<br></br>
+		
 		<form action=donorLoginValidate.jsp method=post>
-		<table align=center>
-			<tr><td>Username</td><td><input type=text name=txtName></td></tr>
-			<tr><td>Password</td><td><input type=password name=txtPwd></td></tr>
-		</table>
-		<table align=center>
-			<tr>
-				<td><input type=checkbox name=txtName>Remember me</td>
-				<td><a href="register.jsp">Forgot password?</a></td>
-			</tr>
-		</table>
-			<br><div align=center><input type=submit value=Login></div></br>
-			<div align=center><a href="donorRegister.jsp">Don't have an account? Register</a></div>
+		<div class="login-container">
+			<label for=txtName><b>Username</b></label>
+    		<input type=text placeholder="Enter Username" name=txtName required>
+    		
+    		<label for=txtPwd><b>Password</b></label>
+    		<input type="password" placeholder="Enter Password" name=txtPwd required>
+			
+			<center>
+				<label>
+      				<input type="checkbox" checked="checked" name="remember"> Remember me
+    			</label>
+    			<button class="btn" type="button">Forgot Password?</button>
+    		</center>
+    		
+    		<center>
+    			<button class="submitBtn" type="submit">Login</button>
+    		</center>
+    		
+    		<center>
+    			<button class="btn" type="button" onclick="window.location='donorRegister.jsp'">Don't have an account? Register</button>
+    		</center>
+   		</div>
 		</form>
 	</body>
 </html>
