@@ -70,17 +70,17 @@ CREATE TABLE donor (
 );
 
 -- donor input
-INSERT INTO donor(first_name,last_name,gender,age,blood_type,heightIN,WeightLB,username,password)
-VALUES('First','Test','M',23,'AB+',70,210,'test','test'),
-	('Mr','Spock','M',102,'B-',72,170,'spock','vulcan'),
-    ('Worf','Mogh','M',54,'AB-',73,190,'klingon','pride'),
-    ('Tom','Rosenthal','M',34,'A-',67,130,'watermelon','pasta'),
-    ('Robert','Smith','M',63,'B+',70,201,'cure','friday'),
-    ('Jim','Hopper','M',45,'A+',73,201,'hops','cop'),
-    ('Winona','Ryder','F',50,'AB-',65,120,'will','where'),
-    ('Gates','McFadden','F',73,'A+',68,130,'doctor','picard'),
-    ('Marina','Sitris','F',67,'O-',65,130,'dianna','ryker'),
-    ('Jonathan','Frakes','M',69,'O+',75,201,'number1','makeitso');
+INSERT INTO donor(first_name,last_name,gender,age,blood_type,heightIN,WeightLB,username,password,eligibility)
+VALUES('First','Test','M',23,'AB+',70,210,'test','test','2020-08-09'),
+	('Mr','Spock','M',102,'B-',72,170,'spock','vulcan','2020-03-11'),
+    ('Worf','Mogh','M',54,'AB-',73,190,'klingon','pride','2022-06-01'),
+    ('Tom','Rosenthal','M',34,'A-',67,130,'watermelon','pasta','2020-04-13'),
+    ('Robert','Smith','M',63,'B+',70,201,'cure','friday','2021-05-29'),
+    ('Jim','Hopper','M',45,'A+',73,201,'hops','cop','2019-01-30'),
+    ('Winona','Ryder','F',50,'AB-',65,120,'will','where','2021-04-14'),
+    ('Gates','McFadden','F',73,'A+',68,130,'doctor','picard','2020-02-11'),
+    ('Marina','Sitris','F',67,'O-',65,130,'dianna','ryker','2022-1-23'),
+    ('Jonathan','Frakes','M',69,'O+',75,201,'number1','makeitso','2021-12-24');
 
 -- patient table
 DROP TABLE IF EXISTS patient;
