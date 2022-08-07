@@ -28,7 +28,7 @@
             <table border="2">
             <tr>
                 <th>Bag ID</th>
-                <th>Donor ID</th>
+                <th>Donation ID</th>
                 <th>Employee ID</th>
                 <th>Blood Type</th>
                 <th>Quantity mL</th>

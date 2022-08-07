@@ -3,34 +3,37 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Blood Inventory</title>
+    <title>Donations</title>
     </head>
   <body>
   <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Blood Inventory</h1>
+    <center><h1>Donations</h1>
     <center>
     <% 
     String db = "BloodBank";
     String user = "root";
-    String password = "password";
+    String pw = "password";
         try {
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BloodBank?autoReconnect=true&useSSL=false", user, password);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM blood_inventory");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM donation");
             %>
             <table border="2">
             <tr>
-                <th>Bag ID</th>
-                <th>Location ID</th>
+                <th>Donation ID</th>
+                <th>Donor ID</th>
+                <th>Employee ID</th>
+                <th>Blood Type</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
                     <td><%=rs.getInt(2)%></td>
-                </tr>
+                    <td><%=rs.getInt(3)%></td>
+                    <td><%=rs.getString(4)%></td>
             <% }
             rs.close();
             stmt.close();

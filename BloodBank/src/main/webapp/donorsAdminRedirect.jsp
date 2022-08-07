@@ -9,7 +9,7 @@
   <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
     <center><h1>Registered Donors</h1>
     <input type="button" value="Update Donor Eligibility" onclick="window.location='donorUpdateEligAdmin.jsp'">
-     <input type="button" value="Remove Donor" onclick="window.location='donorDeleteAdmin.jsp'"><br/><br/><br/><br/>
+     <input type="button" value="Remove Donor" onclick="window.location='donorDeleteAdmin.jsp'"><br/><br/>
     <center>
     <% 
     String db = "BloodBank";
