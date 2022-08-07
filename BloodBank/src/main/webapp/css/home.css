@@ -1,10 +1,12 @@
 .header {
+	position:flex;
 font-family: Arial, Helvetica, sans-serif;
   padding: 10px;
   text-align: center;
   background: #720000;
   color: white;
   font-size: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .btn {
 font-family: Arial, Helvetica, sans-serif;
@@ -13,6 +15,7 @@ transition-duration: 0.4s;
   color: white;
   padding: 10px 43px;
   border: 2px solid #720000;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
 }
 .btn:hover {
   background-color: white;
@@ -25,6 +28,7 @@ transition-duration: 0.4s;
   color: white;
   padding: 10px 41px;
   border: 2px solid #720000;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
 }
 .btn2:hover {
   background-color: white;
@@ -37,6 +41,7 @@ transition-duration: 0.4s;
   color: white;
   padding: 10px;
   border: 2px solid #720000;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
 }
 .btn3:hover {
   background-color: white;

@@ -2,15 +2,18 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="UTF-8">
 		<title>Login</title>
 		<link rel="stylesheet" href="css/login.css" />
 	</head>
 	<body>
+	<body style="background-color:#e3a5a1;">
+		
 		<div class="header">
-		<button class="btn" type="button" name="back" onclick="window.location='home.jsp'">Home</button>
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='home.jsp'">Home</button>
+			</div>
 			<h1>Donor Login</h1>
 		</div>
 		<br></br>
@@ -31,11 +34,10 @@
     		</center>
     		
     		<center>
-    			<button class="submitBtn" type="submit">Login</button>
+    			<br><button class="submitBtn" type="submit">Login</button>
     		</center>
-    		
     		<center>
-    			<button class="btn" type="button" onclick="window.location='donorRegister.jsp'">Don't have an account? Register</button>
+    			<br><button class="btn" type="button" onclick="window.location='donorRegister.jsp'">Don't have an account? Register</button>
     		</center>
    		</div>
 		</form>
