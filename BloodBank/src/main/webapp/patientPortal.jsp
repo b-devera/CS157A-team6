@@ -21,15 +21,20 @@
 				Class.forName("com.mysql.jdbc.Driver"); 
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
 				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT first_name, last_name, username FROM patient  WHERE username='"+username+"'");
+				ResultSet rs = stmt.executeQuery("SELECT id, first_name, last_name, username FROM patient  WHERE username='"+username+"'");
 				out.println("Hello ");
+				
 				while(rs.next()){
-					out.println(rs.getString(1) + " " + rs.getString(2));
+					int patientID = rs.getInt(1);
+					request.getSession().setAttribute("patient_id",patientID);
+					out.println(rs.getString(2) + " " + rs.getString(3));
 				}
 			}catch(Exception e){
 				out.println(e);
 			}
 		%>
+		<br><br><input type="button" value="View Information" onclick="window.location='patientInfo.jsp'"><br/>
+		<br><input type="button"  value="Transfusions Recived" onclick="window.location = 'patientTransfusion.jsp'"><br/>
 		</center>
 	</body>
 </html>

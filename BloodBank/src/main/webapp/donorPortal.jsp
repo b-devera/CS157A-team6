@@ -23,14 +23,14 @@
 				Class.forName("com.mysql.jdbc.Driver"); 
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
 				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT id, first_name, last_name, username FROM donor2  WHERE username='"+username+"'");
+				ResultSet rs = stmt.executeQuery("SELECT id, first_name, last_name, username FROM donor  WHERE username='"+username+"'");
 				out.println("Hello ");
 				
 
 		         
 				while(rs.next()){
 					 int donorID = rs.getInt(1);
-			         request.getSession().setAttribute("donor_id", rs.getInt(1));
+			         request.getSession().setAttribute("donor_id", donorID);
 					out.println(rs.getString(2) + " " + rs.getString(3));
 				}
 				out.println(", Welcome to Jurassic Park");
@@ -38,7 +38,8 @@
 				out.println(e);
 			}
 		%>
-		<br><br><input type="button" value="View Information" onclick="window.location='donorInfo.jsp'"><br/><br/>
+		<br><br><input type="button" value="View Information" onclick="window.location='donorInfo.jsp'"><br/>
+		<br><input type="button" value="View Appointment" onclick="window.location='donorAppointmentView.jsp'"><br/>
 		</center>
 	</body>
 </html>

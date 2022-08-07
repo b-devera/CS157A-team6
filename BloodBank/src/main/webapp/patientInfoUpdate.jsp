@@ -2,24 +2,72 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <html>
+<style>
+    div.ex
+    {
+        width:300px;
+        padding:10px;
+        border:5px solid gray;
+        margin:0px;
+    }
+#genderBox{
+    margin-left: 22px;
+}
+#ageBox{
+    margin-left: 42px;
+}
+#weightBox{
+    margin-right: 10px
+}
+#bloodBox{
+    margin-right: 4px
+}
+#userBox{
+	margin-left: 2px
+}
+#passBox{
+	margin-left: 5px
+}
+#lastRow {
+    margin-left: 0px;
+}
 </style>
   <head>
-    <title>Eligibility Update</title>
+    <title>Information Update</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='donors.jsp'">Back</button>
-    <center><h1>Eligibility Update</h1>
-    <form action="donorUpdateEligValidate.jsp" method="post">
+  <button type="button" name="back" onclick="history.back()">Back</button>
+    <center><h1>Information Update</h1>
+    <form action="patientInfoUpdateValidate.jsp" method="post">
           <p>
         <label>
-            Donor ID
-            <input type="text" name="donorId" />
+            First Name
+            <input type="text" name="first_name" id="first_nameBox"/>
+        </label>
+    </p>
+    <p>
+        <label>
+            Last Name
+            <input type="text" name="last_name"/>
+        </label>
+    </p>
+  
+    <p>
+        <label>
+            Blood Type
+            <input type="text" name="bloodType" id="bloodBox"/>
         </label>
     </p>
     <p>
     	<label>
-    		Eligibility
-    		<input type="DATE" name="eligibility_date"/>
+    		Username
+    		<input type="text" name = "username" id="userBox"/>
+    	</label>
+    </p>
+    <p>
+    	<label>
+    		Password
+    		<input type="password" name="password" id="passBox"/>
     	</label>
 	</p>
             <input type="reset" value="Clear" />
@@ -31,11 +79,13 @@
     String user = "root";
     String pw = "password";
         try {
+        	int id = (Integer) session.getAttribute("donor_id");
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor");
-           
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM patient WHERE id= ?");
+            pstmt.setInt(1,id);
+            
             ResultSet rs = pstmt.executeQuery();
            
             %>
@@ -44,14 +94,9 @@
                 <th> ID </th>
                 <th> First Name </th>
                 <th> Last Name </th>
-                <th> Gender </th>
-                <th> Age </th>
                 <th> Blood Type </th>
-                <th> Height (inches) </th>
-                <th> Weight (lbs) </th>
                 <th> Username </th>
                 <th> Password </th>
-                <th> Eligibility </th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -59,13 +104,8 @@
                     <td><%=rs.getString(2)%></td>
                     <td><%=rs.getString(3)%></td>
                     <td><%=rs.getString(4)%></td>
-                    <td><%=rs.getInt(5)%></td>
-                    <td><%=rs.getString(6)%></td>
-                    <td><%=rs.getInt(7)%></td>
-                    <td><%=rs.getInt(8)%></td>
-                    <td><%=rs.getString(9)%></td>
-                    <td><%=rs.getString(10)%></td>
-                    <td><%=rs.getString(11) %></td>
+                    <td><%=rs.getString(5)%></td>
+                    <td><%=rs.getString(6) %></td>
 
                 </tr>
             <% }

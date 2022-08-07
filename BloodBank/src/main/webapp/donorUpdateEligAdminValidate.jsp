@@ -15,7 +15,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET eligibility = ? WHERE id=? ;");
 			pst.setString(1, elig);
 			pst.setInt(2,idInt);

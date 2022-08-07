@@ -30,7 +30,10 @@
 			}else if(rs2.next()){  
 				getServletContext().getRequestDispatcher("/adminPortal.jsp").include(request,response);
 			}else{
-   				getServletContext().getRequestDispatcher("/employeeError.jsp").include(request,response);
+				%>
+				<center><p style="color:red">Invalid Login Credentials.</p></center>
+				<%
+   				getServletContext().getRequestDispatcher("/employeeLogin.jsp").include(request,response);
 			}
 		} catch(Exception e){       
 			out.println(e);       

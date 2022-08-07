@@ -8,7 +8,8 @@
   <body>
   <button type="button" name="back" onclick="window.location='employeePortal.jsp'">Back</button>
     <center><h1>Registered Donors</h1>
-    <input type="button" value="Update Donor Eligibility" onclick="window.location='donorUpdateElig.jsp'"><br/><br/>
+    <input type="button" value="Update Donor Eligibility" onclick="window.location='donorUpdateElig.jsp'">
+    <input type="button" value="Remove Donor" onclick="window.location='donorDelete.jsp'"><br/><br/>
     <center>
     <% 
     String db = "BloodBank";
@@ -20,7 +21,7 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM donor2");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM donor");
             %>
             <table border="2">
             <tr>

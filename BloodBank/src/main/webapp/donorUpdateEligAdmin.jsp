@@ -34,7 +34,7 @@
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor2");
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor");
            
             ResultSet rs = pstmt.executeQuery();
            

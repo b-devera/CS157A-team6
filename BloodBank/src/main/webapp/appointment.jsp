@@ -25,19 +25,19 @@
             %>
             <table border="2">
            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Appointment ID</th>
+                <th>Donor ID</th>
+                <th>Employee ID</th>
                 <th>Appointment Date</th>
                 <th>Appointment Time</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
-                    <td><%=rs.getString(2)%></td>
-                    <td><%=rs.getString(3)%></td>
+                    <td><%=rs.getInt(2)%></td>
+                    <td><%=rs.getInt(3)%></td>
                     <td><%=rs.getDate(4)%></td>
-                    <td><%=rs.getString(5)%></td>
+                    <td><%=rs.getTime(5)%></td>
                 </tr>
             <% }
             rs.close();

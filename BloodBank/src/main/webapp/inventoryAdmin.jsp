@@ -10,6 +10,7 @@
     <center><h1>Inventory</h1>
     <input type="button" value="Add New Blood Bag" onclick="window.location='inventoryInsert.jsp'" >
     <input type="button" value="Delete Blood Bag" onclick="window.location='inventoryDelete.jsp'" >
+    <input type="button" value="Verify Inventory" onclick ="window.location='inventoryApprove.jsp'">
       <input type="button" value="Update Item" onclick="window.location='inventoryUpdate.jsp'"><br/><br/>
     <center>
     <% 
@@ -32,6 +33,7 @@
                 <th>Blood Type</th>
                 <th>Quantity mL</th>
                 <th>Expiration</th>
+                <th>Approved By</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -41,6 +43,7 @@
                     <td><%=rs.getString(4)%></td>
                     <td><%=rs.getInt(5)%></td>
                     <td><%=rs.getString(6)%></td>
+                    <td><%=rs.getInt(7) %></td>
 
                 </tr>
             <% }

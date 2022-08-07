@@ -29,7 +29,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.donor2(first_name, last_name, "
+			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.donor(first_name, last_name, "
 					+"gender, age, blood_type,  heightIN, weightLB, username, password) VALUES(?,?,?,?,?,?,?,?,?)");
 			pst.setString(1, first);
 			pst.setString(2, last);

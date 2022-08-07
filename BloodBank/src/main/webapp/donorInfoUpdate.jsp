@@ -63,6 +63,7 @@
             <option value="" name="no"> </option>
             <option value="M" name="M">M</option>
             <option value="F" name="F">F</option>
+            <option value="N" name="N">N</option>
         </select>
 
     </p>
@@ -109,7 +110,7 @@
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor2 WHERE id= ?");
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor WHERE id= ?");
             pstmt.setInt(1,id);
             
             ResultSet rs = pstmt.executeQuery();

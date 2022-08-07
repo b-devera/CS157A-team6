@@ -30,7 +30,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2 SET "
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor SET "
 					+" first_name = ?, last_name = ?, gender = ?, age = ?, blood_type = ?, heightIN = ?, "
 							+ " weightLB = ?, username = ?, password = ? WHERE id = ?;");
 			pst.setString(1, first);
@@ -48,7 +48,7 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/donorInfo.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Informaiton Update Successful!</p></center>
+				<center><p style="color:green">Information Update Successful!</p></center>
 				<%
 			}
 		} catch(Exception e){           
@@ -64,7 +64,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET first_name = ? WHERE id=? ;");
 			pst.setString(1, first);
 			pst.setInt(2,id);
@@ -93,7 +93,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET age = ? WHERE id=? ;");
 			pst.setInt(1, ageInt);
 			pst.setInt(2,id);
@@ -120,7 +120,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET last_name = ? WHERE id=? ;");
 			pst.setString(1, last);
 			pst.setInt(2,id);
@@ -147,7 +147,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET gender = ? WHERE id=? ;");
 			pst.setString(1, gender);
 			pst.setInt(2,id);
@@ -174,7 +174,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET blood_type = ? WHERE id=? ;");
 			pst.setString(1, blood);
 			pst.setInt(2,id);
@@ -202,7 +202,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET heightIN = ? WHERE id=? ;");
 			pst.setInt(1, heightInt);
 			pst.setInt(2,id);
@@ -230,7 +230,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET weightLB = ? WHERE id=? ;");
 			pst.setInt(1, weightInt);
 			pst.setInt(2,id);
@@ -258,7 +258,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET username = ? WHERE id=? ;");
 			pst.setString(1, username);
 			pst.setInt(2,id);
@@ -286,7 +286,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor2" 
+			PreparedStatement pst = con.prepareStatement("UPDATE bloodbank.donor" 
 				+ " SET password = ? WHERE id=? ;");
 			pst.setString(1, password);
 			pst.setInt(2,id);

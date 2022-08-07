@@ -39,7 +39,6 @@
 			pst.close();
 			con.close();
 		} catch(Exception e){   
-			out.println(e);
 			%>
 			<center><p style="color:red">Invalid Credentials - Username is taken (Case insensitive).</p></center>
 			<%

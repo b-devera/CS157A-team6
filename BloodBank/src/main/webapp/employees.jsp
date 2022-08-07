@@ -8,7 +8,7 @@
   <body>
   <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
     <center><h1>Registered Employees</h1>
-    <input type="button" value="Add New Employee" onclick="window.location='employeeRegister.jsp'" ><br/><br/>
+    <input type="button" value="Add New Employee" onclick="window.location='employeeRegister.jsp'" >
     <input type="button" value="Remove Employee" onclick="window.location='employeeDelete.jsp'"><br/><br/>
     <center>
     <% 

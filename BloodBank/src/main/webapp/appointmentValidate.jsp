@@ -6,24 +6,26 @@
 	String user = "root";
 	String pw = "password";
 	
-	String firstName = request.getParameter("fname");
-    String lastName = request.getParameter("lname");
+	String donorString = request.getParameter("donID");
+    String employeeString = request.getParameter("empID");
 	String appointmentDate = request.getParameter("date");
 	String time = request.getParameter("time");
 				
-	if(!(firstName.equals(null) || firstName.equals(""))&&
-            !(lastName.equals(null) || lastName.equals(""))&&
+	if(!(donorString.equals(null) || donorString.equals(""))&&
+            !(employeeString.equals(null) || employeeString.equals(""))&&
 	    !(appointmentDate.equals(null) || appointmentDate.equals(""))&& 
             !(time.equals(null) || time.equals("")) ) 
 	{
 
+		int donorINT = Integer.parseInt(donorString);
+		int employeeINT= Integer.parseInt(employeeString);
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.appointment( first_name,"
-					+" last_name, appointment_date, time) VALUES(?,?,?,?)");
-			pst.setString(1, firstName);
-			pst.setString(2, lastName);
+			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.appointment( donor_id,"
+					+" employee_id, appointment_date, time) VALUES(?,?,?,?)");
+			pst.setInt(1, donorINT);
+			pst.setInt(2, employeeINT);
 			pst.setString(3, appointmentDate);
 			pst.setString(4, time);
 		 	int result = pst.executeUpdate();  

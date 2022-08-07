@@ -3,44 +3,47 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Donates</title>
+    <title>Transfusions Received</title>
     </head>
   <body>
   <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Donates</h1>
+    <center><h1>Transfusions Received</h1>
     <center>
     <% 
     String db = "BloodBank";
     String user = "root";
-    String password = "password";
+    String pw = "password";
         try {
+        	int id = (Integer) session.getAttribute("patient_id");
+        	
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BloodBank?autoReconnect=true&useSSL=false", user, password);
-            Statement stmt = con.createStatement();
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);         
+            PreparedStatement pstmt = con.prepareStatement("SELECT bag_id, date FROM transfusion WHERE patient_id= ?");
+            pstmt.setInt(1,id);
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM bloodbag");
+            ResultSet rs = pstmt.executeQuery();
+           
             %>
             <table border="2">
             <tr>
-                <th>Bloodbag ID</th>
-                <th>Quantity</th>
-                <th>Blood Type</th>
+                <th>Bag ID </th>
+                <th>Date </th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
-                    <td><%=rs.getDouble(2)%></td>
-                    <td><%=rs.getString(3)%></td>
+                    <td><%=rs.getString(2)%></td>
                 </tr>
             <% }
             rs.close();
-            stmt.close();
+            pstmt.close();
             con.close();
         }
         catch(SQLException e) {
             out.println("SQLException caught: " + e.getMessage()); 
         }
+        session.removeAttribute("user_name");
     %>
     </center>
    </table>

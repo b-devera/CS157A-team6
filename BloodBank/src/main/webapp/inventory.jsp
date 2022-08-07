@@ -30,6 +30,7 @@
                 <th>Blood Type</th>
                 <th>Quantity mL</th>
                 <th>Expiration</th>
+                <th>Approved By</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -39,7 +40,7 @@
                     <td><%=rs.getString(4)%></td>
                     <td><%=rs.getInt(5)%></td>
                     <td><%=rs.getString(6)%></td>
-
+                    <td><%=rs.getInt(7) %></td>
                 </tr>
             <% }
             rs.close();

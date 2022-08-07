@@ -19,25 +19,19 @@
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT t.transfusion_id, t.patient_id, p.first_name, p.last_name, t.employee_id, e.first_name, e.last_name, t.amount_received FROM transfusion t, person p, employee e WHERE t.patient_id = p.id AND t.employee_id = e.id");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM transfusion");
             %>
             <table border="2">
             <tr>
-                <th>Donation ID</th>
+                <th>Blood Bag ID</th>
                 <th>Patient ID</th>
-                <th>Patient Name</th>
-                <th>Employee ID</th>
-                <th>Employee Name</th>
-                <th>Amount Donated (cc)</th>
+                <th>Date</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
                     <td><%=rs.getInt(2)%></td>
-                    <td><%=rs.getString(3)%> <%=rs.getString(4)%></td>
-                    <td><%=rs.getInt(5)%></td>
-                    <td><%=rs.getString(6)%> <%=rs.getString(7)%></td>
-                    <td><%=rs.getDouble(8)%></td>
+                    <td><%rs.getString(3)%></td>
                 </tr>
             <% }
             rs.close();

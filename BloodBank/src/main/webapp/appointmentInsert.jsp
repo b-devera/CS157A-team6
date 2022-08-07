@@ -37,13 +37,13 @@
     <center><h1>Make an Appoinment</h1>
     <form action="appointmentValidate.jsp" method="post">
     <p>
-        First Name:
-        <input type="text" name="fname" id="empBox">
+        Donor ID:
+        <input type="text" name="donID" >
     </p>
     <p>
     	<label>
-    		Last Name:
-    		<input type="text" name="lname" id="empBox"/>
+    		Employee ID:
+    		<input type="text" name="empID" id="empBox"/>
     	</label>
 	</p>
     <p>

@@ -3,31 +3,33 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Self Information</title>
+    <title>Donors</title>
     </head>
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Self Information</h1>
-    <input type="button" value="Update Information" onclick="window.location='donorInfoUpdate.jsp'" ><br/><br/>
+  <button type="button" name="back" onclick="window.location='donors.jsp'">Back</button>
+    <center><h1>Donors</h1>
+    <form action="donorDeleteValidate.jsp" method="post">
+    <p>
+    	Enter Donor ID to be removed:
+    	<input type="text" name="removeId">
+    </p>
+    <input type="reset" value="Clear" />
+    <input type="submit" value="Submit"/>
+    </form>
     <center>
     <% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
         try {
-        	int id = (Integer) session.getAttribute("donor_id");
-        	
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);         
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor WHERE id= ?");
-            pstmt.setInt(1,id);
-            
-            ResultSet rs = pstmt.executeQuery();
-           
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM donor");
             %>
             <table border="2">
-            <tr>
+                      <tr>
                 <th> ID </th>
                 <th> First Name </th>
                 <th> Last Name </th>
@@ -36,8 +38,6 @@
                 <th> Blood Type </th>
                 <th> Height (inches) </th>
                 <th> Weight (lbs) </th>
-                <th> Username </th>
-                <th> Password </th>
                 <th> Eligibility </th>
             </tr>
             <% while (rs.next()) { %>
@@ -50,22 +50,17 @@
                     <td><%=rs.getString(6)%></td>
                     <td><%=rs.getInt(7)%></td>
                     <td><%=rs.getInt(8)%></td>
-                    <td><%=rs.getString(9)%></td>
-                    <td><%=rs.getString(10)%></td>
-                    <td><%=rs.getString(11) %></td>
+                    <td><%=rs.getString(9) %></td>
 
                 </tr>
             <% }
             rs.close();
-            pstmt.close();
+            stmt.close();
             con.close();
         }
         catch(SQLException e) {
-        	%>
-    		<center><p style="color:red">Invalid Credentials.</p></center>
-    		<%
+            out.println("SQLException caught: " + e.getMessage()); 
         }
-        session.removeAttribute("user_name");
     %>
     </center>
    </table>

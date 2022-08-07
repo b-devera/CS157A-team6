@@ -33,6 +33,7 @@
 		<br/><br/><input type="button" value="Landing Page" onclick="window.location='home.jsp'" ><br/><br/>
 		<input type="button" value="Donors" onclick="window.location='donors.jsp'" ><br/><br/>
 		<input type="button" value="Inventory" onclick="window.location='inventory.jsp'"><br/><br/>
+		<input type="button" value="Appointments" onclick="window.location='appointment.jsp'" ><br/><br/> 
 		</center>
 	</body>
 </html>
