@@ -8,8 +8,6 @@
 		<link rel="stylesheet" href="css/login.css" />
 	</head>
 	<body>
-	<body style="background-color:#e3a5a1;">
-		
 		<div class="header">
 			<div class="topleft">
 			<button class="btn" type="button" name="back" onclick="window.location='home.jsp'">Home</button>
@@ -36,6 +34,7 @@
     		<center>
     			<br><button class="submitBtn" type="submit">Login</button>
     		</center>
+    		
     		<center>
     			<br><button class="btn" type="button" onclick="window.location='donorRegister.jsp'">Don't have an account? Register</button>
     		</center>

@@ -4,25 +4,37 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Employee Login</title>
+		<title>Employee/Admin Login</title>
+		<link rel="stylesheet" href="css/login.css" />
 	</head>
 	<body>
-		<button type="button" name="back" onclick="window.location='home.jsp'">Back</button>
-		<div align=center>
-			<h1>Employee Login</h1>
+		<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='home.jsp'">Home</button>
+			</div>
+			<h1>Employee/Admin Login</h1>
 		</div>
-		<form action="employeeLoginValidate.jsp" method=post>
-		<table align=center>
-			<tr><td>Employee ID</td><td><input type=text name=empID></td></tr>
-			<tr><td>Password</td><td><input type=password name=txtPwd></td></tr>
-		</table>
-		<table align=center>
-			<tr>
-				<td><input type=checkbox name=txtName>Remember me</td>
-				<td><a href="register.jsp">Forgot password?</a></td>
-			</tr>
-		</table>
-			<br><div align=center><input type=submit value=Login></div></br>
+		<br></br>
+		
+		<form action=employeeLoginValidate.jsp method=post>
+		<div class="login-container">
+			<label for=txtName><b>Employee ID</b></label>
+    		<input type=text placeholder="Enter ID" name=empID required>
+    		
+    		<label for=txtPwd><b>Password</b></label>
+    		<input type="password" placeholder="Enter Password" name=txtPwd required>
+			
+			<center>
+				<label>
+      				<input type="checkbox" checked="checked" name="remember"> Remember me
+    			</label>
+    			<button class="btn" type="button">Forgot Password?</button>
+    		</center>
+    		
+    		<center>
+    			<br><button class="submitBtn" type="submit">Login</button>
+    		</center>
+   		</div>
 		</form>
 	</body>
 </html>

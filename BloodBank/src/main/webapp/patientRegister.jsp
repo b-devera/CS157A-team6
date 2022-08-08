@@ -28,45 +28,56 @@
 </style>
   <head>
     <title>Register</title>
+    <link rel="stylesheet" href="css/register.css" />
     </head>
   <body>
-    <button type="button" name="back" onclick="window.location='home.jsp'">Back</button>
-    <center><h1>Patient Registration</h1>
-    <form action="patientRegisterValidate.jsp" method="post">
-    <p>
-        <label>
-            First Name
-            <input type="text" name="first_name" id="first_nameBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Last Name
-            <input type="text" name="last_name"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Blood Type
-            <input type="text" name="bloodType" id="bloodBox"/>
-        </label>
-    </p>
-    <p>
-    	<label>
-    		Username
-    		<input type="text" name = "username" id="userBox"/>
-    	</label>
-    </p>
-    <p>
-    	<label>
-    		Password
-    		<input type="password" name="password" id="passBox"/>
-    	</label>
-	</p>
-            <input type="reset" value="Clear" />
-            <input type="submit" value="Submit"/>
-  </form>
-    </center>
-   </table>
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='home.jsp'">Home</button>
+			</div>
+			<h1>Patient Registration</h1>
+		</div>
+		<br><br>
+		
+	<form action="patientRegisterValidate.jsp" method="post">
+		<div class="register-container">
+			<label for=txtFirstName><b>First Name</b></label>
+    		<input type=text placeholder="Enter first name" name=first_name required>
+    		
+    		<label for=txtLastName><b>Last Name</b></label>
+    		<input type=text placeholder="Enter last name" name=last_name required>
+    		<br></br>
+    		
+    		
+    		<label for=bloodTypeBox><b>Blood Type</b></label>
+    		<select name="bloodType" value="bloodType">
+          			<option value="" name="no"> </option>
+            		<option value="AB+" name="AB+">AB+</option>
+            		<option value="AB-" name="AB-">AB-</option>
+            		<option value="A+" name="A+">A+</option>
+            		<option value="A-" name="A-">A-</option>
+            		<option value="B+" name="B+">B+</option>
+            		<option value="B-" name="B-">B-</option>
+            		<option value="O+" name="O+">O+</option>
+            		<option value="O-" name="O-">O-</option>
+       		</select>
+        	<br></br>
+        		
+       		<label for=username><b>Username</b></label>
+    		<input type=text placeholder="Enter Username" name=username required>
+    		
+    		<label for=password><b>Password</b></label>
+    		<input type="password" placeholder="Enter Password" name=password required>
+    		
+    		<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Register</button>
+    		</center>
+    		
+    		<center>
+    			<br><button class="btn" type="button" onclick="window.location='patientLogin.jsp'">Already have an account? Login</button>
+    		</center>
+		</div>
+	</form>
   </body>
 </html>

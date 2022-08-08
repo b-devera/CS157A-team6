@@ -6,26 +6,39 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Patient Login</title>
+		<link rel="stylesheet" href="css/login.css" />
 	</head>
 	<body>
-		<button type="button" name="back" onclick="window.location='home.jsp'">Back</button>
-
-		<div align=center>
+		<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='home.jsp'">Home</button>
+			</div>
 			<h1>Patient Login</h1>
 		</div>
+		<br></br>
+		
 		<form action=patientLoginValidate.jsp method=post>
-		<table align=center>
-			<tr><td>Username</td><td><input type=text name=ptUsername></td></tr>
-			<tr><td>Password</td><td><input type=password name=pwd></td></tr>
-		</table>
-		<table align=center>
-			<tr>
-				<td><input type=checkbox name=txtName>Remember me</td>
-				<td><a href="register.jsp">Forgot password?</a></td>
-			</tr>
-		</table>
-			<br><div align=center><input type=submit value=Login></div></br>
-			<div align=center><a href="patientRegister.jsp">Don't have an account? Register</a></div>
+		<div class="login-container">
+			<label for=txtName><b>Username</b></label>
+    		<input type=text placeholder="Enter Username" name=ptUsername required>
+    		
+    		<label for=txtPwd><b>Password</b></label>
+    		<input type="password" placeholder="Enter Password" name=pwd required>
+			
+			<center>
+				<label>
+      				<input type="checkbox" checked="checked" name="remember"> Remember me
+    			</label>
+    			<button class="btn" type="button">Forgot Password?</button>
+    		</center>
+    		
+    		<center>
+    			<br><button class="submitBtn" type="submit">Login</button>
+    		</center>
+    		<center>
+    			<br><button class="btn" type="button" onclick="window.location='patientRegister.jsp'">Don't have an account? Register</button>
+    		</center>
+   		</div>
 		</form>
 	</body>
 </html>

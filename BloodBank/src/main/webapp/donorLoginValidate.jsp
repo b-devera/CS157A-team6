@@ -24,7 +24,8 @@
 			}
 			else{  
 				%>
-				<center><p style="color:red">Invalid Login Credentials.</p></center>
+				<link rel="stylesheet" href="css/login.css" />
+				<center><p class="notification-text">Invalid Login Credentials.</p></center>
 				<%
    				getServletContext().getRequestDispatcher("/donorLogin.jsp").include(request,response);
 			}
@@ -34,7 +35,8 @@
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Login Credentials.</p></center>
+		<link rel="stylesheet" href="css/login.css" />
+				<center><p class="notification-text">Invalid Login Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/donorLogin.jsp").include(request,response);
 	}

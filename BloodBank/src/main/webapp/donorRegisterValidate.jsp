@@ -45,12 +45,14 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/donorLogin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Account Creation Successful!</p></center>
+				<link rel="stylesheet" href="css/register.css" />
+				<center><p class="notification-text">Account has been successfully created!</p></center>
 				<%
 			}
 		} catch(Exception e){           
 			%>
-			<center><p style="color:red">Invalid Credentials - Username is taken (Case insensitive).</p></center>
+			<link rel="stylesheet" href="css/register.css" />
+				<center><p class="notification-text">Invalid Credentials - Username is taken (Case insensitive).</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/donorRegister.jsp").include(request,response);
 			
@@ -58,7 +60,8 @@
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/register.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/donorRegister.jsp").include(request,response);
 	}
