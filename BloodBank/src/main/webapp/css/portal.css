@@ -18,7 +18,13 @@ font-family: Arial, Helvetica, sans-serif;
 	font-size:18px;
 }
 h1 {
-	text-align: center
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	color: white;
 }
 .btn {
 font-family: Arial, Helvetica, sans-serif;
@@ -33,20 +39,7 @@ transition-duration: 0.4s;
   background-color: white;
   color: #720000;
 }
-.submitBtn {
-font-family: Arial, Helvetica, sans-serif;
-transition-duration: 0.4s;
-  background-color: #db8481; 
-  color: white;
-  padding: 10px 43px;
-  border: 2px solid #720000;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-.submitBtn:hover {
-  background-color: white;
-  color: #720000;
-}
-.login-container {
+.portal-container {
 	background-color: #720000;
 	position: absolute;
 	top:25%;
@@ -54,22 +47,4 @@ transition-duration: 0.4s;
 	padding: 16px;
 	width:50%;
 	box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-}
-input[type=text], input[type=password] {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #720000;
-  box-sizing: border-box;
-}
-label {
-	padding: 12px 20px;
-	font-family: Arial, Helvetica, sans-serif;
-	color: white;
-}
-.notification-text {
-	font-family: Arial, Helvetica, sans-serif;
-	color: white;
 }

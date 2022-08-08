@@ -4,13 +4,22 @@
 <html>
   <head>
     <title>Registered Admins</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Registered Admins</h1>
-    <input type="button" value="Add New Admin" onclick="window.location='adminRegister.jsp'" ><br/><br/>
-    <center>
-    <% 
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
+			</div>
+			<h1>Registered Admins</h1>
+		</div>
+		<br><br>
+  
+  <div class="info-container">
+  	<button class="btn" type="button" onclick="window.location='adminRegister.jsp'">Add new Admin</button>
+		<br></br>
+		
+	<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
@@ -22,7 +31,7 @@
             
             ResultSet rs = stmt.executeQuery("SELECT * FROM admin");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
@@ -47,7 +56,6 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+  </div>
   </body>
 </html>

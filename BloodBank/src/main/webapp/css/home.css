@@ -12,14 +12,23 @@ font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+.home-container {
+	background-color: #720000;
+	position: absolute;
+	top:25%;
+	left:37%;
+	padding: 16px;
+	width:25%;
+	box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 .btn {
 font-family: Arial, Helvetica, sans-serif;
 transition-duration: 0.4s;
-  background-color: #720000; 
+  background-color: #db8481; 
   color: white;
   padding: 10px 43px;
   border: 2px solid #720000;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 .btn:hover {
   background-color: white;
@@ -28,7 +37,7 @@ transition-duration: 0.4s;
 .btn2 {
 font-family: Arial, Helvetica, sans-serif;
 transition-duration: 0.4s;
-  background-color: #720000; 
+  background-color: #db8481; 
   color: white;
   padding: 10px 41px;
   border: 2px solid #720000;
@@ -41,7 +50,7 @@ transition-duration: 0.4s;
 .btn3 {
 font-family: Arial, Helvetica, sans-serif;
 transition-duration: 0.4s;
-  background-color: #720000; 
+  background-color: #db8481; 
   color: white;
   padding: 10px;
   border: 2px solid #720000;

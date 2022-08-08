@@ -33,90 +33,88 @@
 }
 </style>
   <head>
-    <title>Information Update</title>
+    <title>My Information</title>
     </head>
+    <link rel="stylesheet" href="css/info.css" />
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Information Update</h1>
-    <form action="donorInfoUpdateValidate.jsp" method="post">
-          <p>
-        <label>
-            First Name
-            <input type="text" name="first_name" id="first_nameBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Last Name
-            <input type="text" name="last_name"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Age
-            <input type="parseInt" name="age" id="ageBox">
-        </label>
-    </p>
-    <p>
-        Gender:
-        <select name="gender" value="gender" id="genderBox">
-            <option value="" name="no"> </option>
-            <option value="M" name="M">M</option>
-            <option value="F" name="F">F</option>
-            <option value="N" name="N">N</option>
-        </select>
-
-    </p>
-    <p>
-        <label>
-            Blood Type
-            <input type="text" name="bloodType" id="bloodBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Height (in)
-            <input type="text" name="height"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Weight (lbs)
-            <input type="text" name="weight" id="weightBox"/>
-        </label>
-    </p>
-    <p>
-    	<label>
-    		Username
-    		<input type="text" name = "username" id="userBox"/>
-    	</label>
-    </p>
-    <p>
-    	<label>
-    		Password
-    		<input type="password" name="password" id="passBox"/>
-    	</label>
-	</p>
-            <input type="reset" value="Clear" />
-            <input type="submit" value="Submit"/>
-  </form>
-  	<center>
-    <% 
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='donorInfo.jsp'">Back</button>
+			</div>
+			<h1>My Information</h1>
+		</div>
+		<br><br>
+		
+  <form action="donorInfoUpdateValidate.jsp" method="post">
+  	<div class="info-container">
+			<label for=txtFirstName><b>First Name</b></label>
+    		<input type=text placeholder="Enter first name" name=first_name>
+    		
+    		<label for=txtLastName><b>Last Name</b></label>
+    		<input type=text placeholder="Enter last name" name=last_name>
+    		<br></br>
+    		
+    		<div class="register-subcontainer">
+    			<label for=txtAge><b>Age</b></label>
+    			<input type=text placeholder="Enter age" name=age>
+    			
+    			<label for=genderBox><b>Gender</b></label>
+    			<select name="gender" value="gender">
+          			<option value="" name="no"> </option>
+            		<option value="M" name="M">M</option>
+            		<option value="F" name="F">F</option>
+        		</select>
+        		
+        		<label for=bloodTypeBox><b>Blood Type</b></label>
+    			<select name="bloodType" value="bloodType">
+          			<option value="" name="no"> </option>
+            		<option value="AB+" name="AB+">AB+</option>
+            		<option value="AB-" name="AB-">AB-</option>
+            		<option value="A+" name="A+">A+</option>
+            		<option value="A-" name="A-">A-</option>
+            		<option value="B+" name="B+">B+</option>
+            		<option value="B-" name="B-">B-</option>
+            		<option value="O+" name="O+">O+</option>
+            		<option value="O-" name="O-">O-</option>
+        		</select>
+        		
+        		<label for=txtName><b>Height (in)</b></label>
+    			<input type=text placeholder="Enter height" name=height>
+    		
+    			<label for=txtPwd><b>Weight (lbs)</b></label>
+    			<input type=text placeholder="Enter weight" name=weight>
+    		</div>
+    		<br></br>
+    		
+    		<label for=username><b>Username</b></label>
+    		<input type=text placeholder="Enter Username" name=username>
+    		
+    		<label for=password><b>Password</b></label>
+    		<input type="password" placeholder="Enter Password" name=password>
+    		
+    		<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Update</button>
+    		</center>
+    		<br></br>
+    		
+    		<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
         try {
         	int id = (Integer) session.getAttribute("donor_id");
+        	
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);         
             PreparedStatement pstmt = con.prepareStatement("SELECT * FROM donor WHERE id= ?");
             pstmt.setInt(1,id);
             
             ResultSet rs = pstmt.executeQuery();
            
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th> ID </th>
                 <th> First Name </th>
@@ -151,10 +149,13 @@
             con.close();
         }
         catch(SQLException e) {
-            out.println("SQLException caught: " + e.getMessage()); 
+        	%>
+    		<center><p style="color:red">Invalid Credentials.</p></center>
+    		<%
         }
+        session.removeAttribute("user_name");
     %>
-    </center>
-   </table>
+		</div>
+  </form>
   </body>
 </html>
