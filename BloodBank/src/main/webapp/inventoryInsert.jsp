@@ -18,7 +18,7 @@
 		
 		<form action="inventoryValidateEmployee.jsp" method="post">
 			<div class="insert-container">
-				<label for=donorid><b>Donor ID</b></label>
+				<label for=donorid><b>Donoration ID</b></label>
     			<input type=text placeholder="Enter donor ID" name=donorid required>
     			
     			<label for=empID><b>Employee ID</b></label>
