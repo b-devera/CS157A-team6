@@ -19,7 +19,7 @@
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);         
-            PreparedStatement pstmt = con.prepareStatement("SELECT bag_id, date FROM transfusion WHERE patient_id= ?");
+            PreparedStatement pstmt = con.prepareStatement("SELECT bagId, date FROM transfusion WHERE patient_id= ?");
             pstmt.setInt(1,id);
             
             ResultSet rs = pstmt.executeQuery();
