@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Inventory</title>
+    <title>Appointment</title>
     <link rel="stylesheet" href="css/info.css" />
     </head>
   <body>
@@ -11,46 +11,41 @@
 			<div class="topleft">
 			<button class="btn" type="button" name="back" onclick="window.location='employeePortal.jsp'">Back</button>
 			</div>
-			<h1>Inventory</h1>
+			<h1>Appointments</h1>
 		</div>
 		<br><br>
-  
-  <div class="info-container">
-  	<button class="btn" type="button" onclick="window.location='inventoryInsertEmployee.jsp'">Add Blood Bag</button>
-		<br></br>
 		
+	<div class="info-container">
+  	<button class="btn" type="button" onclick="window.location='appointmentEmployeeInsert.jsp'">Add Appointment</button>
+  	<button class="btn" type="button" onclick="window.location='appointmentEmployeeDelete.jsp'">Delete Appointment</button>
+		<br></br>
     <% 
     String db = "BloodBank";
     String user = "root";
-    String pw = "password";
+    String password = "password";
         try {
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/BloodBank?autoReconnect=true&useSSL=false", user, password);
             Statement stmt = con.createStatement();
             
-            ResultSet rs = stmt.executeQuery("SELECT * FROM inventory");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM appointment");
             %>
             <table id="information">
-            <tr>
-                <th>Bag ID</th>
-                <th>Donation ID</th>
+           <tr>
+                <th>Appointment ID</th>
+                <th>Donor ID</th>
                 <th>Employee ID</th>
-                <th>Blood Type</th>
-                <th>Quantity (mL)</th>
-                <th>Expiration</th>
-                <th>Approved By</th>
+                <th>Appointment Date</th>
+                <th>Appointment Time (24 hr)</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
                     <td><%=rs.getInt(2)%></td>
                     <td><%=rs.getInt(3)%></td>
-                    <td><%=rs.getString(4)%></td>
-                    <td><%=rs.getInt(5)%></td>
-                    <td><%=rs.getString(6)%></td>
-                    <td><%=rs.getInt(7) %></td>
-
+                    <td><%=rs.getDate(4)%></td>
+                    <td><%=rs.getTime(5)%></td>
                 </tr>
             <% }
             rs.close();
@@ -61,7 +56,6 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+  </body>
   </body>
 </html>

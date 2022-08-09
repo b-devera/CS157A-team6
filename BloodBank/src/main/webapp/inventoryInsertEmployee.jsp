@@ -10,7 +10,7 @@
   <body>
   	<div class="header">
 			<div class="topleft">
-			<button class="btn" type="button" name="back" onclick="window.location='inventoryAdmin.jsp'">Back</button>
+			<button class="btn" type="button" name="back" onclick="window.location='inventory.jsp'">Back</button>
 			</div>
 			<h1>Add Blood Bag</h1>
 		</div>

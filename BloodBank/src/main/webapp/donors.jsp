@@ -4,13 +4,21 @@
 <html>
   <head>
     <title>Registered Donors</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='employeePortal.jsp'">Back</button>
-    <center><h1>Registered Donors</h1>
-    <input type="button" value="Update Donor Eligibility" onclick="window.location='donorUpdateElig.jsp'">
-    <input type="button" value="Remove Donor" onclick="window.location='donorDelete.jsp'"><br/><br/>
-    <center>
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='employeePortal.jsp'">Back</button>
+			</div>
+			<h1>Registered Donors</h1>
+		</div>
+		<br><br>
+		
+	<div class="info-container">
+  	<button class="btn" type="button" onclick="window.location='donorUpdateElig.jsp'">Update Donor Eligibility</button>
+  	<button class="btn" type="button" onclick="window.location='donorDelete.jsp'">Remove Donor</button>
+		<br></br>
     <% 
     String db = "BloodBank";
     String user = "root";
@@ -23,7 +31,7 @@
             
             ResultSet rs = stmt.executeQuery("SELECT * FROM donor");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
@@ -33,7 +41,7 @@
                 <th>Blood Type</th>
                 <th>Height (in)</th>
                 <th>Weight (lbs)</th>
-                <th> Eligibility </th>
+                <th>Eligibility</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -56,7 +64,5 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
   </body>
 </html>

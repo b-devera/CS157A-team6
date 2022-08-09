@@ -3,21 +3,31 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Donors</title>
+    <title>Remove Donors</title>
+    <link rel="stylesheet" href="css/delete.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="window.location='donors.jsp'">Back</button>
-    <center><h1>Donors</h1>
-    <form action="donorDeleteValidate.jsp" method="post">
-    <p>
-    	Enter Donor ID to be removed:
-    	<input type="text" name="removeId">
-    </p>
-    <input type="reset" value="Clear" />
-    <input type="submit" value="Submit"/>
-    </form>
-    <center>
-    <% 
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='donors.jsp'">Back</button>
+			</div>
+			<h1>Remove Donors</h1>
+		</div>
+		<br><br>
+	
+	<form action="donorDeleteValidate.jsp" method="post">
+		<div class="delete-container">
+			<label for=removeId><b>Donor ID</b></label>
+    		<input type=text placeholder="Enter donor ID to be removed" name=removeId required>
+			
+			<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Submit</button>
+    		</center>
+    		<br></br>
+    		
+    		<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
@@ -28,7 +38,7 @@
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM donor");
             %>
-            <table border="2">
+            <table id="information">
                       <tr>
                 <th> ID </th>
                 <th> First Name </th>
@@ -50,7 +60,7 @@
                     <td><%=rs.getString(6)%></td>
                     <td><%=rs.getInt(7)%></td>
                     <td><%=rs.getInt(8)%></td>
-                    <td><%=rs.getString(9) %></td>
+                    <td><%=rs.getString(11) %></td>
 
                 </tr>
             <% }
@@ -62,7 +72,7 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+		</div>
+	</form>
   </body>
 </html>

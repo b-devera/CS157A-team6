@@ -34,7 +34,7 @@
 		 	int result = pst.executeUpdate();  
 		 	
 			if(result == 1){
-				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
+				getServletContext().getRequestDispatcher("/inventory.jsp").include(request,response);
 				%>
 				<link rel="stylesheet" href="css/insert.css" />
 				<center><p class="notification-text">Blood Bag has been successfully added!</p></center>
@@ -47,7 +47,7 @@
 			<link rel="stylesheet" href="css/insert.css" />
 				<center><p class="notification-text">Invalid Credentials - Username is taken (Case insensitive).</p></center>
 			<%
-				getServletContext().getRequestDispatcher("/inventoryInsert.jsp").include(request,response);
+				getServletContext().getRequestDispatcher("/inventoryInsertEmployee.jsp").include(request,response);
 			
 		} 
 	}
@@ -56,6 +56,6 @@
 		<link rel="stylesheet" href="css/insert.css" />
 				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
-			getServletContext().getRequestDispatcher("/inventoryInsert.jsp").include(request,response);
+			getServletContext().getRequestDispatcher("/inventoryInsertEmployee.jsp").include(request,response);
 	}
 %>

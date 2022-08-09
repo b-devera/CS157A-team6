@@ -9,8 +9,16 @@
 	</head>
 	
 	<body>
-		<button type="button" name="back" onclick="window.location='employeeLogin.jsp'">Back</button>
-		<center><h1>Employee Portal</h1>
+	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='employeeLogin.jsp'">Logout</button>
+			</div>
+			<h1>Employee Portal</h1>
+		</div>
+		<br><br>
+		
+		<div class="portal-container">
+		<h2>
 		<%
 			String db= "bloodbank";
 			String user = "root";
@@ -32,10 +40,18 @@
        			out.println(e);       
    			}   
 		%>
-		<br/><br/><input type="button" value="Landing Page" onclick="window.location='home.jsp'" ><br/><br/>
-		<input type="button" value="Donors" onclick="window.location='donors.jsp'" ><br/><br/>
-		<input type="button" value="Inventory" onclick="window.location='inventory.jsp'"><br/><br/>
-		<input type="button" value="Appointments" onclick="window.location='appointment.jsp'" ><br/><br/> 
-		</center>
+		</h2>
+		
+			<center>
+    			<br><button class="btn" type="Donors" onclick="window.location='donors.jsp'">Donors</button>
+   			</center>
+   			<center>
+    			<br><button class="btn" type="Inventory" onclick="window.location='inventory.jsp'">Inventory</button>
+   			</center>
+   			<center>
+    			<br><button class="btn" type="Appointments" onclick="window.location='appointmentEmployee.jsp'">Appointments</button>
+   			</center>
+   			<br></br>
+		</div>
 	</body>
 </html>

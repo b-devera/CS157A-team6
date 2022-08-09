@@ -25,13 +25,15 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/donorUpdateElig.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Information Update Successful!</p></center>
+				<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Information has been successfully updated!</p></center>
 				<%
 			}
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/donorUpdateElig.jsp").include(request,response);
 			
@@ -39,7 +41,8 @@
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/donorUpdateElig.jsp").include(request,response);
 	}

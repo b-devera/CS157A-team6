@@ -10,13 +10,13 @@
   <body>
   <div class="header">
 			<div class="topleft">
-			<button class="btn" type="button" name="back" onclick="window.location='appointment.jsp'">Back</button>
+			<button class="btn" type="button" name="back" onclick="window.location='appointmentEmployee.jsp'">Back</button>
 			</div>
 			<h1>Add an Appointment</h1>
 		</div>
 		<br><br>
 	
-	<form action="appointmentValidate.jsp" method="post">
+	<form action="appointmentEmployeeValidate.jsp" method="post">
 		<div class="insert-container">
 			<label for=donID><b>Donor ID</b></label>
     		<input type=text placeholder="Enter donor ID" name=donID required>

@@ -12,7 +12,7 @@
 			<div class="topleft">
 			<button class="btn" type="button" name="back" onclick="window.location='donorsAdminRedirect.jsp'">Back</button>
 			</div>
-			<h1>Donor Registration</h1>
+			<h1>Remove Donors</h1>
 		</div>
 		<br><br>
 		
