@@ -4,13 +4,21 @@
 <html>
   <head>
     <title>Transfusions Received</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Transfusions Received</h1>
-    <center>
-    <% 
-    String db = "BloodBank";
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='patientPortal.jsp'">Back</button>
+			</div>
+			<h1>Transfusions Received</h1>
+		</div>
+		<br><br>
+		
+		<div class="info-container">
+			<% 
+    String db = "bloodbank";
     String user = "root";
     String pw = "password";
         try {
@@ -19,21 +27,25 @@
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);         
-            PreparedStatement pstmt = con.prepareStatement("SELECT bagId, date FROM transfusion WHERE patient_id= ?");
+            PreparedStatement pstmt = con.prepareStatement("SELECT t.bagId, t.date, p.first_name, p.last_name FROM transfusion t, patient p WHERE t.patient_id= ? AND p.id= t.patient_id");
             pstmt.setInt(1,id);
             
             ResultSet rs = pstmt.executeQuery();
            
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>Bag ID </th>
                 <th>Date </th>
+                <th>First Name </th>
+                <th>Last Name </th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
                     <td><%=rs.getInt(1)%></td>
                     <td><%=rs.getString(2)%></td>
+                    <td><%=rs.getString(3)%></td>
+                    <td><%=rs.getString(4)%></td>
                 </tr>
             <% }
             rs.close();
@@ -45,7 +57,6 @@
         }
         session.removeAttribute("user_name");
     %>
-    </center>
-   </table>
+		</div>
   </body>
 </html>

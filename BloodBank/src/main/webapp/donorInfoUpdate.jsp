@@ -3,7 +3,7 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>My Information</title>
+    <title>Update Information</title>
     </head>
     <link rel="stylesheet" href="css/info.css" />
   <body>
@@ -11,7 +11,7 @@
 			<div class="topleft">
 			<button class="btn" type="button" name="back" onclick="window.location='donorInfo.jsp'">Back</button>
 			</div>
-			<h1>My Information</h1>
+			<h1>Update Information</h1>
 		</div>
 		<br><br>
 		

@@ -53,7 +53,7 @@
     			<br><button class="btn" type="View Information" onclick="window.location='donorInfo.jsp'">View Information</button>
     		</center>
     		<center>
-    			<br><button class="btn" type="View Appointment" onclick="window.location='donorAppointmentView.jsp'">View Appointment</button>
+    			<br><button class="btn" type="View Appointment" onclick="window.location='donorAppointmentView.jsp'">View Appointments</button>
     		</center>
     		<br>
 		</div>

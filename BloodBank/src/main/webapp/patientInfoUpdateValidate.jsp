@@ -36,13 +36,15 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/patientInfo.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Information Update Successful!</p></center>
+				<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Information has been successfully updated!</p></center>
 				<%
 			}
 		} catch(Exception e){           
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/patientInfoUpdate.jsp").include(request,response);
 			
@@ -63,13 +65,15 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/patientInfo.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Information Update Successful!</p></center>
+				<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Information has been successfully updated!</p></center>
 				<%
 			}
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/patientInfoUpdate.jsp").include(request,response);
 			
@@ -90,13 +94,15 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/patientInfo.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Information Update Successful!</p></center>
+				<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Information has been successfully updated!</p></center>
 				<%
 			}
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/patientInfoUpdate.jsp").include(request,response);
 			
@@ -117,13 +123,15 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/patientInfo.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Information Update Successful!</p></center>
+				<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Information has been successfully updated!</p></center>
 				<%
 			}
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/patientInfoUpdate.jsp").include(request,response);
 			
@@ -145,13 +153,15 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/patientInfo.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Information Update Successful!</p></center>
+				<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Information has been successfully updated!</p></center>
 				<%
 			}
 		} catch(Exception e){   
 			
 			%>
-			<center><p style="color:red">Invalid Credentials - Username is taken.</p></center>
+			<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials (Username is taken).</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/patientInfoUpdate.jsp").include(request,response);
 			
@@ -173,13 +183,15 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/patientInfo.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Information Update Successful!</p></center>
+				<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Information has been successfully updated!</p></center>
 				<%
 			}
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/patientInfoUpdate.jsp").include(request,response);
 			
@@ -187,7 +199,8 @@
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/patientInfoUpdate.jsp").include(request,response);
 	}

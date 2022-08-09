@@ -34,52 +34,58 @@
 </style>
   <head>
     <title>Information Update</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Information Update</h1>
-    <form action="patientInfoUpdateValidate.jsp" method="post">
-          <p>
-        <label>
-            First Name
-            <input type="text" name="first_name" id="first_nameBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Last Name
-            <input type="text" name="last_name"/>
-        </label>
-    </p>
-  
-    <p>
-        <label>
-            Blood Type
-            <input type="text" name="bloodType" id="bloodBox"/>
-        </label>
-    </p>
-    <p>
-    	<label>
-    		Username
-    		<input type="text" name = "username" id="userBox"/>
-    	</label>
-    </p>
-    <p>
-    	<label>
-    		Password
-    		<input type="password" name="password" id="passBox"/>
-    	</label>
-	</p>
-            <input type="reset" value="Clear" />
-            <input type="submit" value="Submit"/>
-  </form>
-  	<center>
-    <% 
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='donorInfo.jsp'">Back</button>
+			</div>
+			<h1>Update Information</h1>
+		</div>
+		<br><br>
+		
+		<form action="patientInfoUpdateValidate.jsp" method="post">
+			<div class="info-container">
+				<label for=txtFirstName><b>First Name</b></label>
+    			<input type=text placeholder="Enter first name" name=first_name>
+    			
+    			<label for=txtLastName><b>Last Name</b></label>
+    			<input type=text placeholder="Enter last name" name=last_name>
+    		
+    			<label for=bloodTypeBox><b>Blood Type</b></label>
+    			<select name="bloodType" value="bloodType">
+          			<option value="" name="no"> </option>
+            		<option value="AB+" name="AB+">AB+</option>
+            		<option value="AB-" name="AB-">AB-</option>
+            		<option value="A+" name="A+">A+</option>
+            		<option value="A-" name="A-">A-</option>
+            		<option value="B+" name="B+">B+</option>
+            		<option value="B-" name="B-">B-</option>
+            		<option value="O+" name="O+">O+</option>
+            		<option value="O-" name="O-">O-</option>
+        		</select>
+        		
+        		<label for=username><b>Username</b></label>
+    			<input type=text placeholder="Enter Username" name=username>
+    		
+    			<label for=password><b>Password</b></label>
+    			<input type="password" placeholder="Enter Password" name=password>
+    			<br></br>
+    			
+    			<center>
+	    		    <button class="btn" type="reset">Clear</button>
+	    			<button class="submitBtn" type="submit">Update</button>
+	    		</center>
+	    		<br></br>
+	    		
+	    		<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
         try {
-        	int id = (Integer) session.getAttribute("donor_id");
+        	int id = (Integer) session.getAttribute("patient_id");
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);
@@ -89,7 +95,7 @@
             ResultSet rs = pstmt.executeQuery();
            
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th> ID </th>
                 <th> First Name </th>
@@ -117,7 +123,7 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+			</div>
+		</form>
   </body>
 </html>

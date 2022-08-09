@@ -4,13 +4,23 @@
 <html>
   <head>
     <title>Self Information</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Self Information</h1>
-    <input type="button" value="Update Information" onclick="window.location='patientInfoUpdate.jsp'" ><br/><br/>
-    <center>
-    <% 
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='patientPortal.jsp'">Back</button>
+			</div>
+			<h1>My Information</h1>
+		</div>
+		<br><br>
+		
+		<div class="info-container">
+			<button class="btn" type="button" onclick="window.location='patientInfoUpdate.jsp'">Update Information</button>
+			<br></br>
+			
+			<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
@@ -26,7 +36,7 @@
             ResultSet rs = pstmt.executeQuery();
            
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th> ID </th>
                 <th> First Name </th>
@@ -55,7 +65,6 @@
         }
         session.removeAttribute("user_name");
     %>
-    </center>
-   </table>
+		</div>
   </body>
 </html>
