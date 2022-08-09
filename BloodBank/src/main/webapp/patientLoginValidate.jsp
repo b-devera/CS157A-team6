@@ -23,7 +23,10 @@
 				getServletContext().getRequestDispatcher("/patientPortal.jsp").include(request,response);	
 			}
 			else{  
-   				getServletContext().getRequestDispatcher("/patientLoginError.jsp").include(request,response);
+				%>
+				<center><p style="color:red">Invalid Login Credentials.</p></center>
+				<%
+   				getServletContext().getRequestDispatcher("/patientLogin.jsp").include(request,response);
 			}
 		} catch(Exception e){       
 			out.println(e);       
