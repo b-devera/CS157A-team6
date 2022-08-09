@@ -4,11 +4,19 @@
 <html>
   <head>
     <title>Blood Transfusions</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Blood Transfusion Log</h1>
-    <center>
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
+			</div>
+			<h1>Blood Transfusion Log</h1>
+		</div>
+		<br><br>
+    
+    <div class="info-container">
     <% 
     String db = "BloodBank";
     String user = "root";
@@ -21,7 +29,7 @@
             
             ResultSet rs = stmt.executeQuery("SELECT * FROM transfusion");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>Blood Bag ID</th>
                 <th>Patient ID</th>
@@ -42,7 +50,5 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
   </body>
 </html>

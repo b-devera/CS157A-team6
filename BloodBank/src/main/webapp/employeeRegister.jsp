@@ -2,73 +2,51 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.sql.*,java.util.*"%>
 <html>
-<style>
-    div.ex
-    {
-        width:300px;
-        padding:10px;
-        border:5px solid gray;
-        margin:0px;
-    }
-#genderBox{
-    margin-left: 22px;
-}
-#ageBox{
-    margin-left: 42px;
-}
-#weightBox{
-    margin-right: 10px
-}
-#bloodBox{
-    margin-right: 4px
-}
-#lastRow {
-    margin-left: 0px;
-}
-</style>
   <head>
-    <title>Register</title>
+    <title>Employee Registration</title>
+    <link rel="stylesheet" href="css/register.css" />
     </head>
+    
   <body>
-    <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Employee Registration</h1>
-    <form action="employeeRegisterValidate.jsp" method="post">
-    <p>
-        <label>
-            First Name
-            <input type="text" name="first_name" id="first_nameBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Last Name
-            <input type="text" name="last_name"/>
-        </label>
-    </p>
-        <p>
-        <label>
-            Age
-            <input type="parseInt" name="age" id="ageBox">
-        </label>
-    </p>
-    <p>
-        Gender:
-        <select name="gender" value="gender" id="genderBox">
-            <option value="" name="no"> </option>
-            <option value="M" name="M">M</option>
-            <option value="F" name="F">F</option>
-        </select>
-    </p>
-    <p>
-    	<label>
-    		Password
-    		<input type="password" name="password" id="passBox"/>
-    	</label>
-	</p>
-            <input type="reset" value="Clear" />
-            <input type="submit" value="Submit"/>
-  </form>
-    </center>
-   </table>
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='employees.jsp'">Back</button>
+			</div>
+			<h1>Employee Registration</h1>
+		</div>
+		<br><br>
+	
+	<form action="employeeRegisterValidate.jsp" method="post">
+		<div class="register-container">
+			<label for=first_name><b>First Name</b></label>
+    		<input type=text placeholder="Enter first name" name=first_name required>
+    		
+    		<label for=txtLastName><b>Last Name</b></label>
+    		<input type=text placeholder="Enter last name" name=last_name required>
+    		<br></br>
+    		
+    		<div class="register-subcontainer">
+    			<label for=age><b>Age</b></label>
+    			<input type=text placeholder="Enter age" name=age required>
+    			
+    			<label for=genderBox><b>Gender</b></label>
+    			<select name="gender" value="gender">
+          			<option value="" name="no"> </option>
+            		<option value="M" name="M">M</option>
+            		<option value="F" name="F">F</option>
+        		</select>
+        	</div>
+        	<br></br>	
+        	
+        	<label for=password><b>Password</b></label>
+    		<input type="password" placeholder="Enter Password" name=password required>
+    		<br></br>
+    		
+    		<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Register</button>
+    		</center>
+		</div>
+	</form>
   </body>
 </html>

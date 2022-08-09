@@ -2,72 +2,56 @@
     pageEncoding="UTF-8"%>
 <%@page import="java.sql.*,java.util.*"%>
 <html>
-<style>
-    div.ex
-    {
-        width:300px;
-        padding:10px;
-        border:5px solid gray;
-        margin:0px;
-    }
-#bloodBox{
-    margin-right: 1px
-}
-#qBox{
-    margin-left: 17px;
-}
-#expBox{
-	margin-right:30px
-}
-#donBox{
-    margin-left: 10px;
-}
-#empBox{
-    margin-right: 15px
-}
-#lastRow {
-    margin-left: 0px;
-}
-</style>
   <head>
-    <title>Blood Bag Registration</title>
+    <title>Add Blood Bag</title>
+    <link rel="stylesheet" href="css/insert.css" />
     </head>
+    
   <body>
-    <button type="button" name="back" onclick="window.location='inventory.jsp'">Back</button>
-    <center><h1>Blood Bag Registration</h1>
-    <form action="inventoryValidate.jsp" method="post">
-    <p>
-        Donor ID:
-        <input type="text" name="donorid" id="donBox">
-    </p>
-    <p>
-    	<label>
-    		Employee ID:
-    		<input type="text" name="empID" id="empBox"/>
-    	</label>
-	</p>
-    <p>
-        <label>
-            Blood Type:
-            <input type="text" name="blood_type" id="bloodBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Quantity:
-            <input type="text" name="quantity" id="qBox"/>
-        </label>
-    </p>
-        <p>
-        <label>
-            Expiration Date:
-            <input type="text" name="expiration" id="expBox">
-        </label>
-    </p>
-            <input type="reset" value="Clear" />
-            <input type="submit" value="Submit"/>
-  </form>
-    </center>
-   </table>
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='inventoryAdmin.jsp'">Back</button>
+			</div>
+			<h1>Add Blood Bag</h1>
+		</div>
+		<br><br>
+		
+		<form action="inventoryValidate.jsp" method="post">
+			<div class="insert-container">
+				<label for=donorid><b>Donor ID</b></label>
+    			<input type=text placeholder="Enter donor ID" name=donorid required>
+    			
+    			<label for=empID><b>Employee ID</b></label>
+    			<input type=text placeholder="Enter employee ID" name=empID required>
+				<br></br>
+				
+				<div class="insert-subcontainer">
+					<label for=bloodTypeBox><b>Blood Type</b></label>
+    				<select name="blood_type" value="blood_type">
+	          			<option value="" name="no"> </option>
+	            		<option value="AB+" name="AB+">AB+</option>
+	            		<option value="AB-" name="AB-">AB-</option>
+	            		<option value="A+" name="A+">A+</option>
+	            		<option value="A-" name="A-">A-</option>
+	            		<option value="B+" name="B+">B+</option>
+	            		<option value="B-" name="B-">B-</option>
+	            		<option value="O+" name="O+">O+</option>
+	            		<option value="O-" name="O-">O-</option>
+        			</select>
+        			
+        			<label for=quantity><b>Quantity</b></label>
+    				<input type=text placeholder="Enter quantity" name=quantity required>
+    			
+    				<label for=expiration><b>Expiration Date</b></label>
+    				<input type=DATE name=expiration required>
+				</div>
+				<br></br>
+				
+				<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Submit</button>
+    		</center>
+			</div>
+		</form>
   </body>
 </html>

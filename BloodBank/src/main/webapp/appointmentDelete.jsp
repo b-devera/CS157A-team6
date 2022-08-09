@@ -3,20 +3,32 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Appointment</title>
+    <title>Delete Appointment</title>
+    <link rel="stylesheet" href="css/delete.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Appointment</h1>
-    <form action="appointmentDeleteValidate.jsp" method="post">
-    <p>
-    	Enter Appointment ID here to be removed:
-    	<input type="text" name="removeId">
-    </p>
-    <input type="reset" value="Clear" />
-    <input type="submit" value="Submit"/>
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='appointment.jsp'">Back</button>
+			</div>
+			<h1>Delete an Appointment</h1>
+		</div>
+		<br><br>
+		
+	<form action="appointmentDeleteValidate.jsp" method="post">
+	<div class="delete-container">
+		<label for=removeId><b>Appointment ID</b></label>
+    		<input type=text placeholder="Enter Appointment ID here to be removed" name=removeId required>
+		<br></br>
+		
+		<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Submit</button>
+    		</center>
+    		<br></br>
+    		
     </form>
-    <center>
     <% 
     String db = "BloodBank";
     String user = "root";
@@ -28,7 +40,7 @@
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM appointment");
             %>
-            <table border="2">
+            <table id="information">
              <tr>
                 <th>Appointment ID</th>
                 <th>Donor ID</th>
@@ -53,7 +65,6 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+    </div>
   </body>
 </html>

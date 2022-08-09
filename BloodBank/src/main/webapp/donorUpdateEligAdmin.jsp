@@ -4,29 +4,34 @@
 <html>
 </style>
   <head>
-    <title>Eligibility Update</title>
+    <title>Update Donor Eligibility</title>
+    <link rel="stylesheet" href="css/update.css" />
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='donorsAdminRedirect.jsp'">Back</button>
-    <center><h1>Eligibility Update</h1>
-    <form action="donorUpdateEligValidate.jsp" method="post">
-          <p>
-        <label>
-            Donor ID
-            <input type="text" name="donorId" />
-        </label>
-    </p>
-    <p>
-    	<label>
-    		Eligibility
-    		<input type="DATE" name="eligibility_date"/>
-    	</label>
-	</p>
-            <input type="reset" value="Clear" />
-            <input type="submit" value="Submit"/>
-  </form>
-  	<center>
-    <% 
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='donorsAdminRedirect.jsp'">Back</button>
+			</div>
+			<h1>Update Donor Eligibility</h1>
+		</div>
+		<br><br>
+		
+	<form action="donorUpdateEligAdminValidate.jsp" method="post">
+		<div class="update-container">
+			<label for=donorId><b>Donor ID</b></label>
+    		<input type=text placeholder="Enter donor ID" name=donorId required>
+    		
+    		<label for=eligibility_date><b>Eligibility Date</b></label>
+    		<input type=DATE name=eligibility_date required>
+    		<br></br>
+    		
+    		<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Submit</button>
+    		</center>
+    		<br></br>
+    		
+    		<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
@@ -39,7 +44,7 @@
             ResultSet rs = pstmt.executeQuery();
            
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th> ID </th>
                 <th> First Name </th>
@@ -49,8 +54,6 @@
                 <th> Blood Type </th>
                 <th> Height (inches) </th>
                 <th> Weight (lbs) </th>
-                <th> Username </th>
-                <th> Password </th>
                 <th> Eligibility </th>
             </tr>
             <% while (rs.next()) { %>
@@ -63,8 +66,6 @@
                     <td><%=rs.getString(6)%></td>
                     <td><%=rs.getInt(7)%></td>
                     <td><%=rs.getInt(8)%></td>
-                    <td><%=rs.getString(9)%></td>
-                    <td><%=rs.getString(10)%></td>
                     <td><%=rs.getString(11) %></td>
 
                 </tr>
@@ -77,7 +78,8 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+    		
+		</div>
+	</form>
   </body>
 </html>

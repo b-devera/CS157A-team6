@@ -7,6 +7,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="css/register.css" />
     </head>
+    
   <body>
     <div class="header">
 			<div class="topleft">

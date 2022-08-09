@@ -30,7 +30,7 @@
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
 			PreparedStatement pst = con.prepareStatement("UPDATE inventory SET"
-					+ " donor_id = ?, employee_id = ?, blood_type = ?, quantity =?, expiration = ? "
+					+ " donation_id = ?, employeeid = ?, blood_type = ?, quantity =?, expiration = ? "
 						+"WHERE bag_id=?;");
 			pst.setInt(1, donorIdINT);
 			pst.setInt(2, employeeidINT);
@@ -43,7 +43,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Update Successful!</p></center>
+				<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Blood bag has been updated!</p></center>
 				<%
 			}
 			pst.close();
@@ -51,7 +52,8 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryUpdate.jsp").include(request,response);	
 		} 
@@ -66,7 +68,7 @@
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
 			PreparedStatement pst = con.prepareStatement("UPDATE inventory SET"
-					+ " donor_id = ? WHERE bag_id=?;");
+					+ " donation_id = ? WHERE bag_id=?;");
 			pst.setInt(1, donorIdINT);
 			pst.setInt(2,bagIdINT);
 		 	int result = pst.executeUpdate();  
@@ -74,7 +76,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Update Successful!</p></center>
+				<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Blood bag has been updated!</p></center>
 				<%
 			}
 			pst.close();
@@ -82,7 +85,8 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryUpdate.jsp").include(request,response);	
 		} 
@@ -97,7 +101,7 @@
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
 			PreparedStatement pst = con.prepareStatement("UPDATE inventory SET"
-					+ " employee_id = ? WHERE bag_id=?;");
+					+ " employeeid = ? WHERE bag_id=?;");
 			pst.setInt(1, employeeIdINT);
 			pst.setInt(2,bagIdINT);
 		 	int result = pst.executeUpdate();  
@@ -105,7 +109,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Update Successful!</p></center>
+				<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Blood bag has been updated!</p></center>
 				<%
 			}
 			pst.close();
@@ -113,7 +118,8 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryUpdate.jsp").include(request,response);	
 		} 
@@ -135,7 +141,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Update Successful!</p></center>
+				<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Blood bag has been updated!</p></center>
 				<%
 			}
 			pst.close();
@@ -143,7 +150,8 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryUpdate.jsp").include(request,response);	
 		} 
@@ -165,7 +173,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Update Successful!</p></center>
+				<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Blood bag has been updated!</p></center>
 				<%
 			}
 			pst.close();
@@ -173,7 +182,8 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryUpdate.jsp").include(request,response);	
 		} 
@@ -195,7 +205,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Update Successful!</p></center>
+				<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Blood bag has been updated!</p></center>
 				<%
 			}
 			pst.close();
@@ -203,14 +214,16 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryUpdate.jsp").include(request,response);	
 		} 
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/update.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/inventoryUpdate.jsp").include(request,response);
 	}

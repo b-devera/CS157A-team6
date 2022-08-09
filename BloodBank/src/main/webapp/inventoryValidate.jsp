@@ -24,7 +24,7 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.inventory( donor_id, employee_id,"
+			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.inventory( donation_id, employeeid,"
 					+" blood_type, quantity, expiration) VALUES(?,?,?,?,?)");
 			pst.setInt(1, donorIdINT);
 			pst.setInt(2, employeeidINT);
@@ -34,17 +34,18 @@
 		 	int result = pst.executeUpdate();  
 		 	
 			if(result == 1){
-				getServletContext().getRequestDispatcher("/inventory.jsp").include(request,response);
+				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Addition Successful!</p></center>
+				<link rel="stylesheet" href="css/insert.css" />
+				<center><p class="notification-text">Blood Bag has been successfully added!</p></center>
 				<%
 			}
 			pst.close();
 			con.close();
-		} catch(Exception e){   
-			out.println(e);
+		} catch(Exception e){  
 			%>
-			<center><p style="color:red">Invalid Credentials - Username is taken (Case insensitive).</p></center>
+			<link rel="stylesheet" href="css/insert.css" />
+				<center><p class="notification-text">Invalid Credentials - Username is taken (Case insensitive).</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryInsert.jsp").include(request,response);
 			

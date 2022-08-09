@@ -22,7 +22,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/appointment.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Appointment Removed!</p></center>
+				<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Appointment removed!</p></center>
 				<%
 			}
 			pst.close();
@@ -30,14 +31,16 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/appointmentDelete.jsp").include(request,response);
 		} 
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/appointmentDelete.jsp").include(request,response);
 	}

@@ -4,15 +4,24 @@
 <html>
   <head>
     <title>Inventory</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Inventory</h1>
-    <input type="button" value="Add New Blood Bag" onclick="window.location='inventoryInsert.jsp'" >
-    <input type="button" value="Delete Blood Bag" onclick="window.location='inventoryDelete.jsp'" >
-    <input type="button" value="Verify Inventory" onclick ="window.location='inventoryApprove.jsp'">
-      <input type="button" value="Update Item" onclick="window.location='inventoryUpdate.jsp'"><br/><br/>
-    <center>
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
+			</div>
+			<h1>Inventory</h1>
+		</div>
+		<br><br>
+  
+  <div class="info-container">
+  	<button class="btn" type="button" onclick="window.location='inventoryInsert.jsp'">Add Blood Bag</button>
+  	<button class="btn" type="button" onclick="window.location='inventoryDelete.jsp'">Delete Blood Bag</button>
+  	<button class="btn" type="button" onclick="window.location='inventoryApprove.jsp'">Verify Inventory</button>
+  	<button class="btn" type="button" onclick="window.location='inventoryUpdate.jsp'">Update Blood Bag</button>
+		<br></br>
+		
     <% 
     String db = "BloodBank";
     String user = "root";
@@ -25,13 +34,13 @@
             
             ResultSet rs = stmt.executeQuery("SELECT * FROM inventory");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>Bag ID</th>
                 <th>Donation ID</th>
                 <th>Employee ID</th>
                 <th>Blood Type</th>
-                <th>Quantity mL</th>
+                <th>Quantity (mL)</th>
                 <th>Expiration</th>
                 <th>Approved By</th>
             </tr>

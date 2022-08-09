@@ -31,37 +31,40 @@
 </style>
   <head>
     <title>Appointment</title>
+    <link rel="stylesheet" href="css/insert.css" />
     </head>
+    
   <body>
-    <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Make an Appoinment</h1>
-    <form action="appointmentValidate.jsp" method="post">
-    <p>
-        Donor ID:
-        <input type="text" name="donID" >
-    </p>
-    <p>
-    	<label>
-    		Employee ID:
-    		<input type="text" name="empID" id="empBox"/>
-    	</label>
-	</p>
-    <p>
-        <label>
-            Appointment Date:
-            <input type="DATE" name="date" id="qBox"/>
-        </label>
-    </p>
-    <p>
-        <label>
-            Time:
-            <input type="text" name="time" id="expBox"/>
-        </label>
-    </p>
-            <input type="reset" value="Clear" />
-            <input type="submit" value="Submit"/>
-  </form>
-    </center>
-   </table>
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='appointment.jsp'">Back</button>
+			</div>
+			<h1>Add an Appointment</h1>
+		</div>
+		<br><br>
+	
+	<form action="appointmentValidate.jsp" method="post">
+		<div class="insert-container">
+			<label for=donID><b>Donor ID</b></label>
+    		<input type=text placeholder="Enter donor ID" name=donID required>
+    		
+    		<label for=donID><b>Employee ID</b></label>
+    		<input type=text placeholder="Enter employee ID" name=empID required>
+			<br></br>
+			
+			<div class="insert-subcontainer">
+				<label for=date><b>Appointment Date</b></label>
+    			<input type=DATE name=date required>
+    		
+    			<label for=time><b>Time</b></label>
+    			<input type=text placeholder="24 hour (HH:MM:SS)" name=time required>
+    		</div>
+    		<br></br>
+    		
+    		<center>
+    		    <button class="btn" type="reset">Clear</button>
+    			<button class="submitBtn" type="submit">Submit</button>
+    		</center>
+  	</form>
   </body>
 </html>

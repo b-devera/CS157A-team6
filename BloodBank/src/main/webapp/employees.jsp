@@ -4,13 +4,23 @@
 <html>
   <head>
     <title>Registered Employees</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Registered Employees</h1>
-    <input type="button" value="Add New Employee" onclick="window.location='employeeRegister.jsp'" >
-    <input type="button" value="Remove Employee" onclick="window.location='employeeDelete.jsp'"><br/><br/>
-    <center>
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
+			</div>
+			<h1>Registered Employees</h1>
+		</div>
+		<br><br>
+  
+  <div class="info-container">
+  	<button class="btn" type="button" onclick="window.location='employeeRegister.jsp'">Add new Employee</button>
+	<button class="btn" type="button" onclick="window.location='employeeDelete.jsp'">Delete Employee</button>	
+		<br></br>
+		
     <% 
     String db = "BloodBank";
     String user = "root";
@@ -23,7 +33,7 @@
             
             ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
@@ -48,7 +58,5 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
   </body>
 </html>

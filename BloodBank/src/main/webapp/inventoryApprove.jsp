@@ -4,24 +4,34 @@
 <html>
   <head>
     <title>Verify Inventory</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="window.location='inventoryAdmin.jsp'">Back</button>
-    <center><h1>Verify Inventory</h1>
-    <form action="inventoryApproveValidate.jsp" method="post">
-    <p>
-    	Enter Bag ID to be approved:
-    	<input type="text" name="approveId">
-    </p>
-    <p>
-    	Enter Admin ID:
-    	<input type="text" name="adminID">
-    </p>
-    <input type="reset" value="Clear" />
-    <input type="submit" value="Submit"/>
-    </form>
-    <center>
-    <% 
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='inventoryAdmin.jsp'">Back</button>
+			</div>
+			<h1>Verify Blood Inventory</h1>
+		</div>
+		<br><br>
+		
+		<form action="inventoryApproveValidate.jsp" method="post">
+			<div class="info-container">
+				<label for=approveId><b>Blood Bag ID</b></label>
+    			<input type=text placeholder="Enter blood bag ID to be approved" name=approveId required>
+				
+				<label for=adminID><b>Admin ID</b></label>
+    			<input type=text placeholder="Enter admin ID" name=adminID required>
+				<br></br>
+				
+				<center>
+    		    	<button class="btn" type="reset">Clear</button>
+    				<button class="submitBtn" type="submit">Submit</button>
+    			</center>
+    			<br></br>
+    			
+    			<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
@@ -32,7 +42,7 @@
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM inventory");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>Bag ID</th>
                 <th>Donor ID</th>
@@ -40,7 +50,7 @@
                 <th>Blood Type</th>
                 <th>Quantity mL</th>
                 <th>Expiration</th>
-                <th>Approved_by</th>
+                <th>Approved By (Admin ID)</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -62,7 +72,8 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+    			
+			</div>
+		</form>
   </body>
 </html>

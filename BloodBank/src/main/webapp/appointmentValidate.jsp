@@ -22,8 +22,8 @@
 		try{
 			Class.forName("com.mysql.jdbc.Driver"); 
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db,user,pw);   
-			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.appointment( donor_id,"
-					+" employee_id, appointment_date, time) VALUES(?,?,?,?)");
+			PreparedStatement pst = con.prepareStatement("INSERT INTO bloodbank.appointment(don_id,"
+					+" emp_id, appointment_date, time) VALUES(?,?,?,?)");
 			pst.setInt(1, donorINT);
 			pst.setInt(2, employeeINT);
 			pst.setString(3, appointmentDate);
@@ -33,7 +33,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/appointment.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Appointment Addition Successful!</p></center>
+				<link rel="stylesheet" href="css/register.css" />
+				<center><p class="notification-text">Appointment has been successfully added!</p></center>
 				<%
 			}
 			pst.close();
@@ -41,13 +42,16 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials (Case insensitive).</p></center>
+			<link rel="stylesheet" href="css/register.css" />
+				<center><p class="notification-text">Invalid Credentials (Case insensitive).</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/appointmentInsert.jsp").include(request,response);
 		} 
 	}
 	else{
 		%>
+		<link rel="stylesheet" href="css/register.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<center><p style="color:red">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/appointmentInsert.jsp").include(request,response);

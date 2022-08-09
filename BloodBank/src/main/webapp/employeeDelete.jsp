@@ -3,21 +3,32 @@
 <%@ page import="java.sql.*"%>
 <html>
   <head>
-    <title>Employees</title>
+    <title>Delete Employee</title>
+    <link rel="stylesheet" href="css/delete.css" />
     </head>
+    
   <body>
-  <button type="button" name="back" onclick="window.location='employees.jsp'">Back</button>
-    <center><h1>Inventory</h1>
-    <form action="employeeDeleteValidate.jsp" method="post">
-    <p>
-    	Enter Employee ID of Employee to be removed:
-    	<input type="text" name="removeId">
-    </p>
-    <input type="reset" value="Clear" />
-    <input type="submit" value="Submit"/>
-    </form>
-    <center>
-    <% 
+  	<div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='employees.jsp'">Back</button>
+			</div>
+			<h1>Delete Employee</h1>
+		</div>
+		<br><br>
+		
+		<form action="employeeDeleteValidate.jsp" method="post">
+			<div class="delete-container">
+				<label for=removeId><b>Employee ID</b></label>
+    			<input type=text placeholder="Enter employee ID to be deleted" name=removeId required>
+    			<br></br>
+    			
+    			<center>
+    		    	<button class="btn" type="reset">Clear</button>
+    				<button class="submitBtn" type="submit">Submit</button>
+    			</center>
+    			<br></br>
+    			
+    			<% 
     String db = "BloodBank";
     String user = "root";
     String pw = "password";
@@ -28,7 +39,7 @@
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM employee");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
@@ -53,7 +64,7 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+			</div>
+		</form>	
   </body>
 </html>

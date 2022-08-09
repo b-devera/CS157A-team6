@@ -20,9 +20,10 @@
 		 	int result = pst.executeUpdate();  
 		 	
 			if(result == 1){
-				getServletContext().getRequestDispatcher("/inventory.jsp").include(request,response);
+				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Removal Successful!</p></center>
+				<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Blood bag has been successfully removed!</p></center>
 				<%
 			}
 			pst.close();
@@ -30,14 +31,16 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryDelete.jsp").include(request,response);
 		} 
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/inventoryDelete.jsp").include(request,response);
 	}

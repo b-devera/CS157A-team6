@@ -22,7 +22,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/employees.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Employee Removal Successful!</p></center>
+				<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Employee has been successfully removed!</p></center>
 				<%
 			}
 			pst.close();
@@ -30,14 +31,16 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/employeeDelete.jsp").include(request,response);
 		} 
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/delete.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/employeeDelete.jsp").include(request,response);
 	}

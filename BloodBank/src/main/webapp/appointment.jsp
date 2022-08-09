@@ -4,13 +4,21 @@
 <html>
   <head>
     <title>Appointment</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
   <body>
-  <button type="button" name="back" onclick="history.back()">Back</button>
-    <center><h1>Appointment</h1>
-   <input type="button" value="Add Appointment" onclick="window.location='appointmentInsert.jsp'">
-   <input type="button" value="Delete Appointment" onclick="window.location='appointmentDelete.jsp'"><br/><br/>
-    <center>
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
+			</div>
+			<h1>Appointments</h1>
+		</div>
+		<br><br>
+		
+	<div class="info-container">
+  	<button class="btn" type="button" onclick="window.location='appointmentInsert.jsp'">Add Appointment</button>
+  	<button class="btn" type="button" onclick="window.location='appointmentDelete.jsp'">Delete Appointment</button>
+		<br></br>
     <% 
     String db = "BloodBank";
     String user = "root";
@@ -23,13 +31,13 @@
             
             ResultSet rs = stmt.executeQuery("SELECT * FROM appointment");
             %>
-            <table border="2">
+            <table id="information">
            <tr>
                 <th>Appointment ID</th>
                 <th>Donor ID</th>
                 <th>Employee ID</th>
                 <th>Appointment Date</th>
-                <th>Appointment Time</th>
+                <th>Appointment Time (24 hr)</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -48,7 +56,6 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
+  </body>
   </body>
 </html>

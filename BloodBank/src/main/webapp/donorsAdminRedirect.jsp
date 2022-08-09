@@ -4,13 +4,21 @@
 <html>
   <head>
     <title>Registered Donors</title>
+    <link rel="stylesheet" href="css/info.css" />
     </head>
   <body>
-  <button type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
-    <center><h1>Registered Donors</h1>
-    <input type="button" value="Update Donor Eligibility" onclick="window.location='donorUpdateEligAdmin.jsp'">
-     <input type="button" value="Remove Donor" onclick="window.location='donorDeleteAdmin.jsp'"><br/><br/>
-    <center>
+  <div class="header">
+			<div class="topleft">
+			<button class="btn" type="button" name="back" onclick="window.location='adminPortal.jsp'">Back</button>
+			</div>
+			<h1>Registered Donors</h1>
+		</div>
+		<br><br>
+		
+	<div class="info-container">
+  	<button class="btn" type="button" onclick="window.location='donorUpdateEligAdmin.jsp'">Update Donor Eligibility</button>
+  	<button class="btn" type="button" onclick="window.location='donorDeleteAdmin.jsp'">Remove Donor</button>
+		<br></br>
     <% 
     String db = "BloodBank";
     String user = "root";
@@ -23,7 +31,7 @@
             
             ResultSet rs = stmt.executeQuery("SELECT * FROM donor");
             %>
-            <table border="2">
+            <table id="information">
             <tr>
                 <th>ID</th>
                 <th>First Name</th>
@@ -33,7 +41,7 @@
                 <th>Blood Type</th>
                 <th>Height (in)</th>
                 <th>Weight (lbs)</th>
-                <th> Eligibility </th>
+                <th>Eligibility</th>
             </tr>
             <% while (rs.next()) { %>
                 <tr>
@@ -45,7 +53,7 @@
                     <td><%=rs.getString(6)%></td>
                     <td><%=rs.getInt(7)%></td>
                     <td><%=rs.getInt(8)%></td>
-                    <td><%=rs.getString(9)%></td>
+                    <td><%=rs.getString(11)%></td>
                 </tr>
             <% }
             rs.close();
@@ -56,7 +64,5 @@
             out.println("SQLException caught: " + e.getMessage()); 
         }
     %>
-    </center>
-   </table>
   </body>
 </html>

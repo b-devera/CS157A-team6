@@ -26,7 +26,8 @@
 			if(result == 1){
 				getServletContext().getRequestDispatcher("/inventoryAdmin.jsp").include(request,response);
 				%>
-				<center><p style="color:green">Inventory Approval Successful!</p></center>
+				<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Blood bag has been approved!</p></center>
 				<%
 			}
 			pst.close();
@@ -34,14 +35,16 @@
 		} catch(Exception e){   
 			out.println(e);
 			%>
-			<center><p style="color:red">Invalid Credentials.</p></center>
+			<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 			<%
 				getServletContext().getRequestDispatcher("/inventoryApprove.jsp").include(request,response);
 		} 
 	}
 	else{
 		%>
-		<center><p style="color:red">Invalid Credentials.</p></center>
+		<link rel="stylesheet" href="css/info.css" />
+				<center><p class="notification-text">Invalid Credentials.</p></center>
 		<%
 			getServletContext().getRequestDispatcher("/inventoryApprove.jsp").include(request,response);
 	}
