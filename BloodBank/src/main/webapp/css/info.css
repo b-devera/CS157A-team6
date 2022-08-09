@@ -43,9 +43,9 @@ transition-duration: 0.4s;
 	background-color: #720000;
 	position: absolute;
 	top:25%;
-	left:25%;
+	left:9%;
 	padding: 16px;
-	width:50%;
+	width:80%;
 	box-shadow: 0 8px 16px rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 input[type=text], input[type=password] {
