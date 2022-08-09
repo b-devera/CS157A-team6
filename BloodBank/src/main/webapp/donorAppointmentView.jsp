@@ -27,7 +27,8 @@
             java.sql.Connection con; 
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/"+db, user, pw);         
-            PreparedStatement pstmt = con.prepareStatement("SELECT a.appointment_date, a.time, d.first_name, d.last_name FROM appointment a, donor d WHERE a.don_id = d.id AND a.don_id= ?");
+            PreparedStatement pstmt = con.prepareStatement("SELECT a.appointment_date, a.time, d.first_name," 
+            		+" d.last_name FROM appointment a, donor d WHERE a.don_id = d.id AND a.don_id= ?");
             pstmt.setInt(1,id);
             
             ResultSet rs = pstmt.executeQuery();
