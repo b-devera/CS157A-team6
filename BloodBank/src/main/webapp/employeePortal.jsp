@@ -5,7 +5,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Employee Portal</title>
+		<link rel="stylesheet" href="css/portal.css" />
 	</head>
+	
 	<body>
 		<button type="button" name="back" onclick="window.location='employeeLogin.jsp'">Back</button>
 		<center><h1>Employee Portal</h1>

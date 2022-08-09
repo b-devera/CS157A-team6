@@ -49,13 +49,17 @@
             		<option value="O+" name="O+">O+</option>
             		<option value="O-" name="O-">O-</option>
         		</select>
-        		
-        		<label for=txtName><b>Height (in)</b></label>
+    		</div>
+    		<br></br>
+    		
+    		<div class="register-subcontainer">
+    			<label for=txtName><b>Height (in)</b></label>
     			<input type=text placeholder="Enter height" name=height required>
     		
     			<label for=txtPwd><b>Weight (lbs)</b></label>
     			<input type=text placeholder="Enter weight" name=weight required>
     		</div>
+    		
     		<br></br>
     		
     		<label for=username><b>Username</b></label>

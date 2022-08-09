@@ -2,36 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <html>
-<style>
-    div.ex
-    {
-        width:300px;
-        padding:10px;
-        border:5px solid gray;
-        margin:0px;
-    }
-#genderBox{
-    margin-left: 22px;
-}
-#ageBox{
-    margin-left: 42px;
-}
-#weightBox{
-    margin-right: 10px
-}
-#bloodBox{
-    margin-right: 4px
-}
-#userBox{
-	margin-left: 2px
-}
-#passBox{
-	margin-left: 5px
-}
-#lastRow {
-    margin-left: 0px;
-}
-</style>
   <head>
     <title>My Information</title>
     </head>
@@ -77,8 +47,11 @@
             		<option value="O+" name="O+">O+</option>
             		<option value="O-" name="O-">O-</option>
         		</select>
-        		
-        		<label for=txtName><b>Height (in)</b></label>
+    		</div>
+    		<br></br>
+    		
+    		<div class="register-subcontainer">
+    			<label for=txtName><b>Height (in)</b></label>
     			<input type=text placeholder="Enter height" name=height>
     		
     			<label for=txtPwd><b>Weight (lbs)</b></label>
